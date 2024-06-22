@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import useMousePosition from "../_hooks/useMousePosition";
 
 export default function Spotlight() {

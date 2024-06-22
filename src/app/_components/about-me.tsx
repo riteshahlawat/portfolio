@@ -5,9 +5,9 @@ export default function AboutMe() {
   return (
     <div id="about-me" className="flex-col text-sm">
       <p>
-        I'm an awkward blend between full-stack and deep learning. Born to
+        I&apos;m an awkward blend between full-stack and deep learning. Born to
         descend the gradient, forced to <Code>POST /upload</Code> type of blend.
-        I've had the privilege of working in industry & research for deep
+        I&apos;ve had the privilege of working in industry & research for deep
         learning, creating my own
         <em>
           <b> (failed) </b>
