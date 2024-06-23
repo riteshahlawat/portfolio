@@ -1,9 +1,9 @@
-import Code from "./code";
-import ExternalTextLink from "./external-text-link";
+import Code from "../code";
+import ExternalTextLink from "../external-text-link";
 
 export default function AboutMe() {
   return (
-    <div id="about-me" className="flex-col text-sm">
+    <div id="about-me" className="flex-col">
       <p>
         I&apos;m an awkward blend between full-stack and deep learning. Born to
         descend the gradient, forced to <Code>POST /upload</Code> type of blend.
@@ -17,9 +17,12 @@ export default function AboutMe() {
         <ExternalTextLink href="https://www.athelas.com/">
           Athelas
         </ExternalTextLink>
-        , providing value to the shareholders
+        . Originally from Toronto but living in Mountain View right now :)
       </p>
-      <p className="mt-3">Away from my computer I like to...</p>
+      <p className="mt-3">
+        When I'm not at my computer, I'm usually doing olympic weightlifting,
+        playing chess, playing with my cats, or looking at cat memes :3
+      </p>
     </div>
   );
 }

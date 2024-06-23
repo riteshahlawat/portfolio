@@ -1,5 +1,5 @@
-import TLDRSticky from "./_components/tldr-sticky";
-import MainContent from "./_components/main-content";
+import TLDRSticky from "./_components/page-components/tldr-sticky";
+import MainContent from "./_components/page-components/main-content";
 import Spotlight from "./_components/spotlight";
 
 export default async function Home() {

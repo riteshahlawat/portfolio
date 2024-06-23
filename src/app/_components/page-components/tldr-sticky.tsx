@@ -1,4 +1,4 @@
-import SectionLink from "./section-link";
+import SectionLink from "../section-link";
 
 export default function TLDRSticky() {
   return (

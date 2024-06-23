@@ -1,0 +1,48 @@
+[
+  {
+    "company": "BlueCat",
+    "position": "Software Engineer",
+    "startDate": "2023-03-31",
+    "endDate": "2024-06-30",
+    "summary": "• Created an internal tool that anonymizes customer databases for testing ensuring customer data remains private.\n• Helped implement a DDNS update distribution service, enhancing system reliability by efficiently distributing updates across a cluster of DNS/DHCP servers.\n• Implemented database triggers to automate table partition creation, mitigating database size growth.",
+    "url": "https://bluecatnetworks.com/"
+  },
+  {
+    "company": "Toronto Metropolitan University",
+    "position": "Machine Learning Research Assistant",
+    "startDate": "2021-09-30",
+    "endDate": "2022-04-30",
+    "summary": "• Innovated a novel image compression ML algorithm for gigapixel image classification, achieving 96.39%\naccuracy. Submitted the research paper for publication at the ImNO conference.",
+    "url": "https://www.torontomu.ca/dsussman/research/"
+  },
+  {
+    "company": "BlueCat",
+    "position": "Software Engineer",
+    "startDate": "2021-01-31",
+    "endDate": "2021-08-31",
+    "summary": "• Assistend in implementing TLS encryption between the communication channels of DNS and DHCP servers in Java.\n• Maintained a minimal tech debt by contributing to 10+ automation tests using Selenium, JUnit, and Mockito and fixed 20+ bugs.",
+    "url": "https://bluecatnetworks.com/"
+  },
+  {
+    "company": "Toronto Metropolitan University",
+    "position": "Research Assistant",
+    "startDate": "2020-09-30",
+    "endDate": "2021-04-30",
+    "summary": "• Implemented and tested various deep-learning speech recognition algorithms for single-switch users increasing accessibility for those with disabilities.\n• Created a POC mobile application and presented it successfully to stakeholders for further development of the technology."
+  },
+  {
+    "company": "Ontario Ministry of Transportation",
+    "position": "Software Developer",
+    "startDate": "2020-08-31",
+    "endDate": "2020-12-31",
+    "summary": "• Developed machine learning models using TensorFlow for internal highway detection, vehicle tracking, and lane detection and presented the roadmap to multiple govt. stakeholders for further investments.\n• Improved real-time performance by 775% allowing for real-time inference from 4 streams on a single GPU."
+  },
+  {
+    "company": "Toronto Metropolitan University",
+    "position": "Research Assistant",
+    "startDate": "2019-09-30",
+    "endDate": "2020-04-30",
+    "summary": "• Created a school management system that supports video calls using WebRTC, Firebase, React, and Material UI.\n• Communicated regularly with stakeholders and implemented their needs iteratively.",
+    "url": "https://theeyeopener.com/2018/11/ryerson-led-research-project-webmoti-in-need-of-more-funding/"
+  }
+]
