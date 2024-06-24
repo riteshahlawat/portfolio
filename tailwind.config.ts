@@ -22,6 +22,11 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      colors: {
+        zinc: {
+          "850": "rgb(30, 30, 32)",
+        },
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

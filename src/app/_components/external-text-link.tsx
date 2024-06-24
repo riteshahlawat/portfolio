@@ -11,7 +11,7 @@ export default function ExternalTextLink({
     <Link
       href={href}
       target="_blank"
-      className="text-purple-700 hover:text-purple-400"
+      className="font-bold hover:text-purple-400"
     >
       {children}
     </Link>
