@@ -1,5 +1,6 @@
 import experienceData from "@/app/_data/experience.json";
 import ExperienceCard from "../experience-card";
+import ExternalLink from "../links/external-link";
 
 export default function Experience() {
   return (
@@ -7,6 +8,7 @@ export default function Experience() {
       {experienceData.map((experience, i) => {
         return <ExperienceCard key={i} experience={experience} />;
       })}
+      <ExternalLink className="mt-4">View Full Resume</ExternalLink>
     </div>
   );
 }

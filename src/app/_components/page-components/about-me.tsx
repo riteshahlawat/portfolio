@@ -1,5 +1,5 @@
 import Code from "../code";
-import ExternalTextLink from "../external-text-link";
+import ExternalTextLink from "../links/external-text-link";
 
 export default function AboutMe() {
   return (
