@@ -4,7 +4,7 @@ import ExternalLink from "../links/external-link";
 
 export default function Experience() {
   return (
-    <div className="mt-16 flex flex-col">
+    <div className="mt-16 flex flex-col" id="experience">
       {experienceData.map((experience, i) => {
         return <ExperienceCard key={i} experience={experience} />;
       })}

@@ -1,4 +1,5 @@
 import type experienceData from "@/app/_data/experience.json";
+import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight } from "lucide-react";
 
 type Experience = (typeof experienceData)[0];
@@ -13,6 +14,24 @@ export default function ExperienceCard({
       <>
         {experience.summary.split("\n").map((line, idx) => {
           return <p key={idx}>{line}</p>;
+        })}
+      </>
+    );
+  };
+
+  const renderSkills = () => {
+    return (
+      <>
+        {experience.skills.split(",").map((skill, idx) => {
+          return (
+            <Badge
+              variant="outline"
+              key={idx}
+              className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-600"
+            >
+              {skill.trim()}
+            </Badge>
+          );
         })}
       </>
     );
@@ -33,6 +52,9 @@ export default function ExperienceCard({
           <ArrowUpRight className="ml-1.5 size-4 font-bold transition-all duration-200 group-hover:-translate-y-[1px] group-hover:translate-x-1" />
         </div>
         {renderSummary()}
+        <div className="mt-2 flex flex-row flex-wrap gap-1">
+          {renderSkills()}
+        </div>
       </div>
     </div>
   );

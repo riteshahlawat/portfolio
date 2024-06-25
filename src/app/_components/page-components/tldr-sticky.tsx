@@ -13,7 +13,7 @@ export default function TLDRSticky() {
 
       <div className="mt-12 flex flex-col">
         <SectionLink text="About" idToScrollTo="about-me" />
-        <SectionLink text="Experience" idToScrollTo="about-me" />
+        <SectionLink text="Experience" idToScrollTo="experience" />
         <SectionLink text="Projects" idToScrollTo="about-me" />
       </div>
     </div>

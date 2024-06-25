@@ -3,7 +3,7 @@
     "name": "Thia - AutoML",
     "startDate": "2021-12-31",
     "summary": "• Created a desktop-native AutoML application, streamlining ML training for enhanced accessibility and reduced costs.\n• Architected a comprehensive, multi-tier system comprising an Electron and React UI platform, a Python-based ML system with TensorFlow and Flask, and a Nest.js, Prisma, and MongoDB back-end server.\n• Integrated OAuth for authentication, authorization, and payment APIs, along with quota APIs for efficient usage management and controlled user access.",
-    "url": null,
+    "url": "/images/thia.png",
     "endDate": "2022-09-30"
   }
 ]
