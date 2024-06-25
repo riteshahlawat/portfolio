@@ -21,21 +21,23 @@ export default function ExperienceCard({
   };
 
   const renderSkills = () => {
-    return (
-      <>
-        {experience.skills.split(",").map((skill, idx) => {
-          return (
-            <Badge
-              variant="outline"
-              key={idx}
-              className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-600"
-            >
-              {skill.trim()}
-            </Badge>
-          );
-        })}
-      </>
-    );
+    if (experience.skills) {
+      return (
+        <>
+          {experience.skills.split(",").map((skill, idx) => {
+            return (
+              <Badge
+                variant="outline"
+                key={idx}
+                className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-600"
+              >
+                {skill.trim()}
+              </Badge>
+            );
+          })}
+        </>
+      );
+    }
   };
 
   const renderArrowUpRight = () => {
@@ -52,7 +54,9 @@ export default function ExperienceCard({
         <div className="flex-none">
           <p className="text-xs font-bold text-slate-500">
             {new Date(experience.startDate).getFullYear()} —{" "}
-            {new Date(experience.endDate).getFullYear()}
+            {experience.endDate
+              ? new Date(experience.endDate).getFullYear()
+              : "PRESENT"}
           </p>
         </div>
         <div className="ml-4 flex flex-auto flex-col">
@@ -73,7 +77,7 @@ export default function ExperienceCard({
 
   if (experience.url) {
     return (
-      <Link href={experience.url} target="_blank" className="w-fit">
+      <Link href={experience.url} target="_blank" className="w-full">
         {renderMainCard()}
       </Link>
     );
