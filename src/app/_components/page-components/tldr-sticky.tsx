@@ -14,7 +14,7 @@ export default function TLDRSticky() {
           I make things that work... eventually.
         </p>
 
-        <div className="mt-12 flex flex-col">
+        <div className="mt-12 hidden flex-col md:flex ">
           <SectionLink text="About" idToScrollTo="about-me" />
           <SectionLink text="Experience" idToScrollTo="experience" />
           <SectionLink text="Projects" idToScrollTo="projects" />
