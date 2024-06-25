@@ -2,7 +2,7 @@ import SectionLink from "../section-link";
 
 export default function TLDRSticky() {
   return (
-    <div className="flex w-[45%] flex-col">
+    <div className="fixed w-[45%] flex-col">
       <h1 className="text-5xl font-semibold text-zinc-200">Ritesh Ahlawat</h1>
       <h3 className="mt-2 text-xl font-normal text-zinc-200">
         Software Engineer
@@ -14,7 +14,7 @@ export default function TLDRSticky() {
       <div className="mt-12 flex flex-col">
         <SectionLink text="About" idToScrollTo="about-me" />
         <SectionLink text="Experience" idToScrollTo="experience" />
-        <SectionLink text="Projects" idToScrollTo="about-me" />
+        <SectionLink text="Projects" idToScrollTo="projects" />
       </div>
     </div>
   );

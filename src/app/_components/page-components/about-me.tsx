@@ -19,7 +19,7 @@ export default function AboutMe() {
       </p>
       <p className="mt-3">
         When I'm not at my computer, I'm usually doing olympic weightlifting,
-        playing chess, playing with my cats, or looking at cat memes :3
+        playing chess, rubbing my cats' belly, or browsing through cat memes :3
       </p>
     </div>
   );
