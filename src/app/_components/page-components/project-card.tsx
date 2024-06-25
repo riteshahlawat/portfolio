@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const renderMainCard = () => {
     return (
       <div className="hover:bg-zinc-850 group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
-        <div className="h-auto min-w-[130px] max-w-[130px] overflow-hidden">
+        <div className="hidden h-auto min-w-[130px] max-w-[130px] overflow-hidden md:block">
           <Image
             src={project.imageUrl}
             width={500}
@@ -60,6 +60,21 @@ export default function ProjectCard({ project }: { project: Project }) {
             <ArrowUpRight className="ml-1.5 size-4 font-bold transition-all duration-200 group-hover:-translate-y-[1px] group-hover:translate-x-1" />
           </div>
           {renderSummary()}
+          <div className="mb-2 mt-2 block h-auto overflow-hidden md:hidden">
+            <Image
+              src={project.imageUrl}
+              width={500}
+              height={0}
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+              alt={project.imageAltText}
+              title={project.imageAltText}
+            />
+          </div>
           <div className="mt-2 flex flex-row flex-wrap gap-1">
             {renderSkills()}
           </div>

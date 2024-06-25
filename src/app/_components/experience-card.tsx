@@ -12,11 +12,11 @@ export default function ExperienceCard({
 }) {
   const renderSummary = () => {
     return (
-      <>
+      <div className="mt-1">
         {experience.summary.split("\n").map((line, idx) => {
           return <p key={idx}>{line}</p>;
         })}
-      </>
+      </div>
     );
   };
 
@@ -48,15 +48,21 @@ export default function ExperienceCard({
     }
   };
 
+  const getYearRangeText = () => {
+    return (
+      new Date(experience.startDate).getFullYear() +
+      " — " +
+      (experience.endDate ? new Date(experience.endDate).getFullYear() : "NOW")
+    );
+  };
+
   const renderMainCard = () => {
     return (
       <div className="hover:bg-zinc-850 group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
-        <div className="flex-none">
+        {/* Experience year range (desktop) */}
+        <div className="hidden flex-none md:block">
           <p className="text-xs font-bold text-slate-500">
-            {new Date(experience.startDate).getFullYear()} —{" "}
-            {experience.endDate
-              ? new Date(experience.endDate).getFullYear()
-              : "NOW"}
+            {getYearRangeText()}
           </p>
         </div>
         <div className="ml-4 flex flex-auto flex-col">
@@ -66,6 +72,9 @@ export default function ExperienceCard({
             </p>
             {renderArrowUpRight()}
           </div>
+          <p className="block text-xs font-bold text-slate-500 md:hidden">
+            {getYearRangeText()}
+          </p>
           {renderSummary()}
           <div className="mt-2 flex flex-row flex-wrap gap-1">
             {renderSkills()}
