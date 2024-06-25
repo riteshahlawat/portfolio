@@ -10,7 +10,7 @@ export default function SectionDivider({
   return (
     <div
       className={cn(
-        "sticky top-0 z-[1] my-2 block w-full bg-zinc-900 py-3 text-zinc-200 md:hidden",
+        "sticky top-0 block w-full bg-zinc-900 bg-opacity-80 py-2 text-zinc-200 backdrop-blur-[3px] md:hidden",
         className,
       )}
     >

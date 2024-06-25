@@ -56,7 +56,7 @@ export default function ExperienceCard({
             {new Date(experience.startDate).getFullYear()} —{" "}
             {experience.endDate
               ? new Date(experience.endDate).getFullYear()
-              : "PRESENT"}
+              : "NOW"}
           </p>
         </div>
         <div className="ml-4 flex flex-auto flex-col">
