@@ -29,7 +29,7 @@ export default function ExperienceCard({
               <Badge
                 variant="outline"
                 key={idx}
-                className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-600"
+                className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-800"
               >
                 {skill.trim()}
               </Badge>
@@ -58,7 +58,7 @@ export default function ExperienceCard({
 
   const renderMainCard = () => {
     return (
-      <div className="hover:bg-zinc-850 group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+      <div className="group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
         {/* Experience year range (desktop) */}
         <div className="hidden flex-none md:block">
           <p className="text-xs font-bold text-slate-500">

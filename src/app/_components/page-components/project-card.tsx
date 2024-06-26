@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             <Badge
               variant="outline"
               key={idx}
-              className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-600"
+              className="border-purple-700 text-purple-200 transition-colors duration-300 group-hover:border-purple-900 group-hover:bg-purple-800"
             >
               {skill.trim()}
             </Badge>
@@ -37,7 +37,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const renderMainCard = () => {
     return (
-      <div className="hover:bg-zinc-850 group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+      <div className="group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
         <div className="hidden h-auto min-w-[130px] max-w-[130px] overflow-hidden md:block">
           <Image
             src={project.imageUrl}
