@@ -1,12 +1,25 @@
 import type projectData from "@/app/_data/projects.json";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 type Project = (typeof projectData)[0];
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  onMouseEnter,
+  onMouseLeave,
+  cardIndex,
+  activeHoveredCard,
+}: {
+  project: Project;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  cardIndex: number;
+  activeHoveredCard: number | null;
+}) {
   const renderSummary = () => {
     return (
       <>
@@ -37,7 +50,16 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const renderMainCard = () => {
     return (
-      <div className="group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+      <div
+        className={cn(
+          "group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg",
+          activeHoveredCard !== null &&
+            activeHoveredCard !== cardIndex &&
+            "opacity-50",
+        )}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         <div className="hidden h-auto min-w-[130px] max-w-[130px] overflow-hidden md:block">
           <Image
             src={project.imageUrl}

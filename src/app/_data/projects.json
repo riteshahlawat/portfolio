@@ -8,5 +8,14 @@
     "url": "https://github.com/Thia-AI/Auto-AI",
     "endDate": "2022-09-30",
     "skills": "React, TypeScript, Electron, Python, Flask, TensorFlow, MongoDB, Prisma, SQLite"
+  },
+  {
+    "name": "Portfolio",
+    "startDate": "2024-06-15",
+    "summary": "· I made this website! It's cool isn't it??",
+    "imageUrl": "/images/portfolio.png",
+    "imageAltText": "My portfolio UI",
+    "url": "https://ahlawat.dev/",
+    "skills": "React, TypeScript, Tailwind, Next.js, Vercel"
   }
 ]

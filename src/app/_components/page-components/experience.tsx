@@ -5,12 +5,15 @@ import ExperienceCard from "../experience-card";
 import ExternalLink from "../links/external-link";
 import SectionDivider from "./section-divider";
 import MobileMargin from "./mobile-margin";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSetAtom } from "jotai";
 import { experienceSectionBoundsAtom } from "@/app/_state/atoms";
 
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null);
+  const [activeHoveredCard, setActiveHoveredCard] = useState<number | null>(
+    null,
+  );
 
   const setExperienceBounds = useSetAtom(experienceSectionBoundsAtom);
 
@@ -29,7 +32,16 @@ export default function Experience() {
       <SectionDivider sectionName="Experience" />
 
       {experienceData.map((experience, i) => {
-        return <ExperienceCard key={i} experience={experience} />;
+        return (
+          <ExperienceCard
+            key={i}
+            cardIndex={i}
+            activeHoveredCard={activeHoveredCard}
+            experience={experience}
+            onMouseEnter={() => setActiveHoveredCard(i)}
+            onMouseLeave={() => setActiveHoveredCard(null)}
+          />
+        );
       })}
       <ExternalLink className="mt-4">View Full Resume</ExternalLink>
       <MobileMargin />

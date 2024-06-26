@@ -4,12 +4,15 @@ import projectsData from "@/app/_data/projects.json";
 import ProjectCard from "./project-card";
 import SectionDivider from "./section-divider";
 import MobileMargin from "./mobile-margin";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSetAtom } from "jotai";
 import { projectsSectionBoundsAtom } from "@/app/_state/atoms";
 
 export default function Project() {
   const ref = useRef<HTMLDivElement>(null);
+  const [activeHoveredCard, setActiveHoveredCard] = useState<number | null>(
+    null,
+  );
 
   const setProjectBounds = useSetAtom(projectsSectionBoundsAtom);
 
@@ -29,7 +32,16 @@ export default function Project() {
       <SectionDivider sectionName="Projects" />
 
       {projectsData.map((project, i) => {
-        return <ProjectCard key={i} project={project} />;
+        return (
+          <ProjectCard
+            key={i}
+            project={project}
+            cardIndex={i}
+            activeHoveredCard={activeHoveredCard}
+            onMouseEnter={() => setActiveHoveredCard(i)}
+            onMouseLeave={() => setActiveHoveredCard(null)}
+          />
+        );
       })}
       <MobileMargin className="h-12" />
     </div>

@@ -1,5 +1,6 @@
 import type experienceData from "@/app/_data/experience.json";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
@@ -7,8 +8,16 @@ type Experience = (typeof experienceData)[0];
 
 export default function ExperienceCard({
   experience,
+  onMouseEnter,
+  onMouseLeave,
+  cardIndex,
+  activeHoveredCard,
 }: {
   experience: Experience;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  cardIndex: number;
+  activeHoveredCard: number | null;
 }) {
   const renderSummary = () => {
     return (
@@ -58,7 +67,16 @@ export default function ExperienceCard({
 
   const renderMainCard = () => {
     return (
-      <div className="group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg">
+      <div
+        className={cn(
+          "group mt-2 flex w-full flex-row rounded-md px-2 py-3 transition-all duration-300 hover:bg-zinc-850 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg",
+          activeHoveredCard !== null &&
+            activeHoveredCard !== cardIndex &&
+            "opacity-50",
+        )}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         {/* Experience year range (desktop) */}
         <div className="hidden flex-none md:block">
           <p className="text-xs font-bold text-slate-500">
