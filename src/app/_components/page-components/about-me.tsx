@@ -1,11 +1,30 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Code from "../code";
 import ExternalTextLink from "../links/external-text-link";
 import MobileMargin from "./mobile-margin";
 import SectionDivider from "./section-divider";
+import { useSetAtom } from "jotai";
+import { aboutSectionBoundsAtom } from "@/app/_state/atoms";
 
 export default function AboutMe() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const setAboutBounds = useSetAtom(aboutSectionBoundsAtom);
+
+  useEffect(() => {
+    if (ref.current) {
+      const bounds = ref.current.getBoundingClientRect();
+
+      setAboutBounds({
+        startY: bounds.top + window.scrollY,
+        endY: bounds.bottom + window.scrollY,
+      });
+    }
+  }, [setAboutBounds]);
   return (
-    <div id="about-me" className="flex-col">
+    <div id="about-me" className="flex-col" ref={ref}>
       <SectionDivider sectionName="About" />
       <p>
         I'm an awkward blend between full-stack and deep learning. Born to

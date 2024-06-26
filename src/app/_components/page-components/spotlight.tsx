@@ -1,6 +1,6 @@
 "use client";
 
-import useMousePosition from "../_hooks/useMousePosition";
+import useMousePosition from "@/app/_hooks/useMousePosition";
 
 export default function Spotlight() {
   const { x, y } = useMousePosition();

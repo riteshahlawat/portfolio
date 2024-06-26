@@ -1,8 +1,14 @@
+"use client";
+
 import { Github, Instagram, Linkedin } from "lucide-react";
 import ExternalIconLink from "../links/external-icon-link";
 import SectionLink from "../section-link";
+import { useAtomValue } from "jotai";
+import { activeSectionAtom } from "@/app/_state/atoms";
 
 export default function TLDRSticky() {
+  const activeSection = useAtomValue(activeSectionAtom);
+
   return (
     <div className=" flex flex-col justify-between pb-6 md:fixed md:h-full md:w-[40%] md:pb-36">
       <div>
@@ -15,9 +21,21 @@ export default function TLDRSticky() {
         </p>
 
         <div className="mt-12 hidden flex-col md:flex ">
-          <SectionLink text="About" idToScrollTo="about-me" />
-          <SectionLink text="Experience" idToScrollTo="experience" />
-          <SectionLink text="Projects" idToScrollTo="projects" />
+          <SectionLink
+            text="About"
+            idToScrollTo="about-me"
+            active={activeSection == "about"}
+          />
+          <SectionLink
+            text="Experience"
+            idToScrollTo="experience"
+            active={activeSection == "experience"}
+          />
+          <SectionLink
+            text="Projects"
+            idToScrollTo="projects"
+            active={activeSection == "project"}
+          />
         </div>
       </div>
       <div className="mt-6 flex w-full flex-row gap-4 md:mt-0">
