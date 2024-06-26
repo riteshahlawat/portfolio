@@ -31,7 +31,7 @@ export default function Project() {
       {projectsData.map((project, i) => {
         return <ProjectCard key={i} project={project} />;
       })}
-      <MobileMargin />
+      <MobileMargin className="h-12" />
     </div>
   );
 }
