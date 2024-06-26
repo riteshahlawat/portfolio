@@ -10,7 +10,7 @@ export default function TLDRSticky() {
   const activeSection = useAtomValue(activeSectionAtom);
 
   return (
-    <div className=" flex flex-col justify-between pb-6 md:fixed md:h-full md:w-[40%] md:pb-36">
+    <div className=" flex flex-col justify-between pb-6 md:fixed md:h-full md:w-fit md:pb-36">
       <div>
         <h1 className="text-5xl font-semibold text-zinc-200">Ritesh Ahlawat</h1>
         <h3 className="mt-2 text-xl font-normal text-zinc-200">
