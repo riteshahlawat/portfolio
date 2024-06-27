@@ -90,10 +90,10 @@ export const activeSectionAtom = atom<ActiveSection>((get) => {
         return "about";
     } else if (maxVisibleAreaPercentage === experienceVisibleAreaPercentage) {
         return "experience";
-    } else if (maxVisibleAreaPercentage === projectVisibleAreaPercentage) {
-        return "project";
     } else if (maxVisibleAreaPercentage === writingVisibleAreaPercentage) {
         return "writing";
+    } else if (maxVisibleAreaPercentage === projectVisibleAreaPercentage) {
+        return "project";
     }
 
     return null;

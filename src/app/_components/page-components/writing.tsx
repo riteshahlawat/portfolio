@@ -18,10 +18,10 @@ export default function Writing() {
         if (ref.current) {
             const bounds = ref.current.getBoundingClientRect();
 
-            // setWritingBounds({
-            //     startY: bounds.top + window.scrollY,
-            //     endY: bounds.bottom + window.scrollY,
-            // });
+            setWritingBounds({
+                startY: bounds.top + window.scrollY,
+                endY: bounds.bottom + window.scrollY,
+            });
         }
     }, [setWritingBounds]);
 
