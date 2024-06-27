@@ -1,13 +1,13 @@
 "use client";
 
-import { midScreenYAtom } from "@/app/_state/atoms";
+import { scrollInfoAtom } from "@/app/_state/atoms";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
 
 import { useWindowScrollPosition } from "rooks";
 export default function ActiveSectionUpdater() {
   const { scrollY } = useWindowScrollPosition();
-  const setMidScreenY = useSetAtom(midScreenYAtom);
+  const setMidScreenY = useSetAtom(scrollInfoAtom);
 
   useEffect(() => {
     setMidScreenY({

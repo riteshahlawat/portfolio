@@ -2,22 +2,30 @@ import { atom } from "jotai";
 
 type SectionBound = { startY: number; endY: number };
 type ScreenInfo = { scrollY: number; windowHeight: number };
-export const midScreenYAtom = atom<ScreenInfo>({ scrollY: 0, windowHeight: 0 });
+
+export const scrollInfoAtom = atom<ScreenInfo>({ scrollY: 0, windowHeight: 0 });
 
 export const aboutSectionBoundsAtom = atom<SectionBound>({
   startY: 0,
   endY: 0,
 });
+
 export const experienceSectionBoundsAtom = atom<SectionBound>({
   startY: 0,
   endY: 0,
 });
-export const projectsSectionBoundsAtom = atom<SectionBound>({
+
+export const projectSectionBoundsAtom = atom<SectionBound>({
   startY: 0,
   endY: 0,
 });
 
-type ActiveSection = "about" | "experience" | "project" | null;
+export const writingSectionBoundsAtom = atom<SectionBound>({
+  startY: 0,
+  endY: 0,
+});
+
+type ActiveSection = "about" | "experience" | "project" | "writing" | null;
 
 const calculateVisibleAreaPercentage = (
   startY: number,
@@ -34,10 +42,11 @@ const calculateVisibleAreaPercentage = (
 };
 
 export const activeSectionAtom = atom<ActiveSection>((get) => {
-  const midScreenY = get(midScreenYAtom);
+  const midScreenY = get(scrollInfoAtom);
   const aboutBounds = get(aboutSectionBoundsAtom);
   const experienceBounds = get(experienceSectionBoundsAtom);
-  const projectsBounds = get(projectsSectionBoundsAtom);
+  const projectBounds = get(projectSectionBoundsAtom);
+  const writingBounds = get(writingSectionBoundsAtom);
 
   const currentYStart = midScreenY.scrollY;
   const currentYEnd = midScreenY.scrollY + midScreenY.windowHeight;
@@ -54,9 +63,15 @@ export const activeSectionAtom = atom<ActiveSection>((get) => {
     currentYStart,
     currentYEnd,
   );
-  const projectsVisibleAreaPercentage = calculateVisibleAreaPercentage(
-    projectsBounds.startY,
-    projectsBounds.endY,
+  const projectVisibleAreaPercentage = calculateVisibleAreaPercentage(
+    projectBounds.startY,
+    projectBounds.endY,
+    currentYStart,
+    currentYEnd,
+  );
+  const writingVisibleAreaPercentage = calculateVisibleAreaPercentage(
+    writingBounds.startY,
+    writingBounds.endY,
     currentYStart,
     currentYEnd,
   );
@@ -64,7 +79,8 @@ export const activeSectionAtom = atom<ActiveSection>((get) => {
   const maxVisibleAreaPercentage = Math.max(
     aboutVisibleAreaPercentage,
     experienceVisibleAreaPercentage,
-    projectsVisibleAreaPercentage,
+    projectVisibleAreaPercentage,
+    writingVisibleAreaPercentage,
   );
 
   if (maxVisibleAreaPercentage == 0) {
@@ -74,8 +90,10 @@ export const activeSectionAtom = atom<ActiveSection>((get) => {
     return "about";
   } else if (maxVisibleAreaPercentage === experienceVisibleAreaPercentage) {
     return "experience";
-  } else if (maxVisibleAreaPercentage === projectsVisibleAreaPercentage) {
+  } else if (maxVisibleAreaPercentage === projectVisibleAreaPercentage) {
     return "project";
+  } else if (maxVisibleAreaPercentage === writingVisibleAreaPercentage) {
+    return "writing";
   }
 
   return null;

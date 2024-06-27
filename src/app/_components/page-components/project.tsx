@@ -6,44 +6,44 @@ import SectionDivider from "./section-divider";
 import MobileMargin from "./mobile-margin";
 import { useEffect, useRef, useState } from "react";
 import { useSetAtom } from "jotai";
-import { projectsSectionBoundsAtom } from "@/app/_state/atoms";
+import { projectSectionBoundsAtom } from "@/app/_state/atoms";
 
 export default function Project() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [activeHoveredCard, setActiveHoveredCard] = useState<number | null>(
-    null,
-  );
+    const ref = useRef<HTMLDivElement>(null);
+    const [activeHoveredCard, setActiveHoveredCard] = useState<number | null>(
+        null,
+    );
 
-  const setProjectBounds = useSetAtom(projectsSectionBoundsAtom);
+    const setProjectBounds = useSetAtom(projectSectionBoundsAtom);
 
-  useEffect(() => {
-    if (ref.current) {
-      const bounds = ref.current.getBoundingClientRect();
+    useEffect(() => {
+        if (ref.current) {
+            const bounds = ref.current.getBoundingClientRect();
 
-      setProjectBounds({
-        startY: bounds.top + window.scrollY,
-        endY: bounds.bottom + window.scrollY,
-      });
-    }
-  }, [setProjectBounds]);
+            setProjectBounds({
+                startY: bounds.top + window.scrollY,
+                endY: bounds.bottom + window.scrollY,
+            });
+        }
+    }, [setProjectBounds]);
 
-  return (
-    <div className="mt-0 flex flex-col md:mt-16" id="projects" ref={ref}>
-      <SectionDivider sectionName="Projects" />
+    return (
+        <div className="mt-0 flex flex-col md:mt-16" id="projects" ref={ref}>
+            <SectionDivider sectionName="Projects" />
 
-      {projectsData.map((project, i) => {
-        return (
-          <ProjectCard
-            key={i}
-            project={project}
-            cardIndex={i}
-            activeHoveredCard={activeHoveredCard}
-            onMouseEnter={() => setActiveHoveredCard(i)}
-            onMouseLeave={() => setActiveHoveredCard(null)}
-          />
-        );
-      })}
-      <MobileMargin className="h-12" />
-    </div>
-  );
+            {projectsData.map((project, i) => {
+                return (
+                    <ProjectCard
+                        key={i}
+                        project={project}
+                        cardIndex={i}
+                        activeHoveredCard={activeHoveredCard}
+                        onMouseEnter={() => setActiveHoveredCard(i)}
+                        onMouseLeave={() => setActiveHoveredCard(null)}
+                    />
+                );
+            })}
+            <MobileMargin />
+        </div>
+    );
 }
