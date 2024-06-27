@@ -5,5 +5,5 @@ import { cn } from "@/lib/utils";
  * div instead for mobile.
  */
 export default function MobileMargin({ className }: { className?: string }) {
-  return <div className={cn("block h-16 md:hidden", className)} />;
+    return <div className={cn("block h-16 md:hidden", className)} />;
 }

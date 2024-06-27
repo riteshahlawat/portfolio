@@ -6,15 +6,15 @@ import { useEffect } from "react";
 
 import { useWindowScrollPosition } from "rooks";
 export default function ActiveSectionUpdater() {
-  const { scrollY } = useWindowScrollPosition();
-  const setMidScreenY = useSetAtom(scrollInfoAtom);
+    const { scrollY } = useWindowScrollPosition();
+    const setMidScreenY = useSetAtom(scrollInfoAtom);
 
-  useEffect(() => {
-    setMidScreenY({
-      scrollY: scrollY,
-      windowHeight: window.innerHeight,
-    });
-  }, [scrollY, setMidScreenY]);
+    useEffect(() => {
+        setMidScreenY({
+            scrollY: scrollY,
+            windowHeight: window.innerHeight,
+        });
+    }, [scrollY, setMidScreenY]);
 
-  return <></>;
+    return <></>;
 }
