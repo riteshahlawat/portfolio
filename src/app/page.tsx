@@ -1,7 +1,7 @@
-import TLDRSticky from "./_components/page-components/tldr-sticky";
-import MainContent from "./_components/page-components/main-content";
-import Spotlight from "./_components/page-components/spotlight";
-import ActiveSectionUpdater from "./_components/page-components/active-section-updater";
+import TLDRSticky from "./_components/portfolio/tldr-sticky";
+import MainContent from "./_components/portfolio/main-content";
+import Spotlight from "./_components/portfolio/spotlight";
+import ActiveSectionUpdater from "./_components/portfolio/active-section-updater";
 
 export default async function Home() {
     return (

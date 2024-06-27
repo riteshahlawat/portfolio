@@ -41,9 +41,9 @@ export default function AboutMe() {
                 :)
             </p>
             <p className="mt-3">
-                When I'm not at my computer, I'm usually doing olympic
-                weightlifting, playing chess, rubbing my cats' belly, or
-                browsing through cat memes :3
+                When I'm not at my computer, I'm usually olympic weightlifting,
+                playing chess, rubbing my cats' bellies, or browsing through cat
+                memes :3
             </p>
             <MobileMargin />
         </div>

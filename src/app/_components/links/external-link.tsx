@@ -5,12 +5,16 @@ import Link from "next/link";
 export default function ExternalLink({
     className,
     children,
+    newTab = true,
+    href,
 }: {
     className?: string;
     children: React.ReactNode;
+    newTab?: boolean;
+    href: string;
 }) {
     return (
-        <Link href="/files/Resume.pdf" target="_blank" className="w-fit">
+        <Link href={href} target={newTab ? "_blank" : ""} className="w-fit">
             <div
                 className={cn(
                     "group flex flex-row items-center font-bold hover:text-purple-400",

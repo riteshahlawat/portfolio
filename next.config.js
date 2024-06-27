@@ -4,7 +4,11 @@
  */
 await import("./src/env.js");
 
-/** @type {import("next").NextConfig} */
-const config = {};
+import { withContentlayer } from "next-contentlayer2";
 
-export default config;
+/** @type {import("next").NextConfig} */
+const config = {
+    swcMinify: true,
+};
+
+export default withContentlayer(config);

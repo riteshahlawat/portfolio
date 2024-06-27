@@ -43,7 +43,9 @@ export default function Experience() {
                     />
                 );
             })}
-            <ExternalLink className="mt-4">View Full Resume</ExternalLink>
+            <ExternalLink className="mt-4" href="/files/Resume.pdf">
+                View Full Resume
+            </ExternalLink>
             <MobileMargin />
         </div>
     );
