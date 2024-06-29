@@ -1,13 +1,11 @@
 import BlogViewCount from "@/app/_components/blog/blog-view-count";
 import MarkdownRenderer from "@/app/_components/markdown-renderer";
-import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { allBlogPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { Open_Sans } from "next/font/google";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -63,9 +61,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                         {format(parseISO(post.date), "LLL d, yyyy")} ·{" "}
                         {post.readTimeMinutes} min read
                     </p>
-                    <Suspense fallback={<Spinner size="small" />}>
-                        <BlogViewCount slug={params.slug} />
-                    </Suspense>
+                    <BlogViewCount slug={params.slug} />
                 </div>
             </div>
             <div className="mt-12 px-4  font-medium text-zinc-200 ">

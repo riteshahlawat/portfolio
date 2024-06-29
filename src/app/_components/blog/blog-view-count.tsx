@@ -1,5 +1,6 @@
 "use client";
 
+import { Spinner } from "@/components/ui/spinner";
 import { api } from "@/trpc/react";
 import { useEffect } from "react";
 
@@ -17,15 +18,24 @@ export default function BlogViewCount({ slug }: { slug: string }) {
     useEffect(() => {
         incrementViewCount.mutate({ slug });
     }, [slug]); // eslint-disable-line react-hooks/exhaustive-deps
-    const [viewCountData] = api.blog.viewCount.useSuspenseQuery({
+
+    const viewCountData = api.blog.viewCount.useQuery({
         slug,
     });
 
-    const viewCount = viewCountData.viewCount;
+    const renderViewData = () => {
+        if (viewCountData.isLoading) {
+            return <Spinner size="small" />;
+        }
 
-    return (
-        <p className="flex flex-row">
-            {viewCount} View{viewCount === 1 ? "" : "s"}
-        </p>
-    );
+        const viewCount = viewCountData.data?.viewCount ?? 0;
+
+        return (
+            <p>
+                {viewCount} View{viewCount === 1 ? "" : "s"}
+            </p>
+        );
+    };
+
+    return <>{renderViewData()}</>;
 }
