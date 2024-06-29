@@ -17,7 +17,7 @@ export default function ExternalLink({
         <Link href={href} target={newTab ? "_blank" : ""} className="w-fit">
             <div
                 className={cn(
-                    "group flex flex-row items-center font-bold hover:text-purple-400",
+                    "group flex flex-row items-center font-bold hover:text-purple-500",
                     className,
                 )}
             >
