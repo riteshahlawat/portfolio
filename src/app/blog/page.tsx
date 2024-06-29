@@ -8,7 +8,7 @@ export default async function Blog() {
     );
 
     return (
-        <div className="container mx-auto mt-8 flex w-full flex-row flex-wrap gap-6">
+        <div className="container mx-auto flex w-full flex-row flex-wrap gap-6 pt-16">
             {posts.map((post) => (
                 <BlogCard blogPost={post} key={post._id} />
             ))}

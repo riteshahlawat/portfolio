@@ -41,12 +41,18 @@ export default function RootLayout({
         }
     };
     return (
-        <main className="min-h-screen bg-zinc-900 py-6 text-zinc-400 selection:bg-[#6140f5c9]">
-            <Breadcrumb className="ml-6">
+        <main className="relative min-h-screen bg-zinc-900  text-zinc-400 selection:bg-[#6140f5c9]">
+            <Breadcrumb className="fixed z-10 w-full bg-zinc-900 py-4 pl-6">
                 <BreadcrumbList>
                     <BreadcrumbItem>
                         <BreadcrumbLink>
-                            <Link href="/blog">Blog</Link>
+                            <Link href="/">home</Link>
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbLink>
+                            <Link href="/blog">blog</Link>
                         </BreadcrumbLink>
                     </BreadcrumbItem>
                     {renderAdditionalBreadcrumbs()}

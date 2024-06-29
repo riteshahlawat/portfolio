@@ -36,7 +36,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         <article
             className={cn(
                 openSans.className,
-                "mx-auto max-w-[768px] pb-24 pt-6 md:pt-20",
+                "mx-auto max-w-[768px] pb-24 pt-14 md:pt-20",
             )}
         >
             <div className="relative h-auto w-full overflow-hidden rounded-none md:rounded-md">
