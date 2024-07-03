@@ -10,8 +10,9 @@ import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
 import remarkSuperSub from "remark-supersub";
 
-import { cn } from "@/lib/utils";
+import { cn, headerTextToId } from "@/lib/utils";
 import Link from "next/link";
+import BlogHeading from "./blog/blog-heading";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -23,7 +24,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
         <ReactMarkdown
             remarkPlugins={[
                 remarkGfm,
-                [remarkEmoji, { emoticon: true }],
+                [remarkEmoji, { emoticon: false }],
                 remarkSuperSub,
             ]}
             components={{
@@ -67,82 +68,119 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                     );
                 },
                 h1: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
                     return (
-                        <h1
-                            className={cn(
-                                className,
-                                "mb-4 text-3xl font-bold text-zinc-50",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h1>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h1
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mb-4 text-3xl font-bold text-zinc-50",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h1>
+                        </BlogHeading>
                     );
                 },
 
                 h2: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
+
                     return (
-                        <h2
-                            className={cn(
-                                className,
-                                "mb-4 text-2xl font-bold text-zinc-50",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h2>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h2
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mb-4 text-2xl font-bold text-zinc-50",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h2>
+                        </BlogHeading>
                     );
                 },
                 h3: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
                     return (
-                        <h3
-                            className={cn(
-                                className,
-                                "mt-4 text-xl font-bold text-zinc-50 first:mt-0",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h3>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h3
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mt-4 text-xl font-bold text-zinc-50 first:mt-0",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h3>
+                        </BlogHeading>
                     );
                 },
                 h4: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
                     return (
-                        <h4
-                            className={cn(
-                                className,
-                                "mb-3 text-lg font-bold text-zinc-50",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h4>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h4
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mb-3 text-lg font-bold text-zinc-50",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h4>
+                        </BlogHeading>
                     );
                 },
                 h5: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
                     return (
-                        <h5
-                            className={cn(
-                                className,
-                                "mb-3 font-bold text-zinc-50",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h5>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h5
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mb-3 font-bold text-zinc-50",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h5>
+                        </BlogHeading>
                     );
                 },
                 h6: ({ children, className, ...rest }) => {
+                    const headerComponentId = headerTextToId(
+                        children?.toString(),
+                    );
                     return (
-                        <h6
-                            className={cn(
-                                className,
-                                "mb-2 font-bold text-zinc-50",
-                            )}
-                            {...rest}
-                        >
-                            {children}
-                        </h6>
+                        <BlogHeading headerComponentId={headerComponentId}>
+                            <h6
+                                id={headerComponentId}
+                                className={cn(
+                                    className,
+                                    "mb-2 font-bold text-zinc-50",
+                                )}
+                                {...rest}
+                            >
+                                {children}
+                            </h6>
+                        </BlogHeading>
                     );
                 },
                 hr: ({ className, ...rest }) => {
@@ -160,6 +198,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                     return (
                         <Link
                             href={href ?? ""}
+                            target="_blank"
                             className={cn(
                                 className,
                                 "text-purple-600 transition-colors duration-200 hover:text-purple-400",

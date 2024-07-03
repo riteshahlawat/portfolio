@@ -4,6 +4,8 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -34,7 +36,10 @@ export default function RootLayout({
                     fontSans.variable,
                 )}
             >
-                <TRPCReactProvider>{children}</TRPCReactProvider>
+                <TRPCReactProvider>
+                    <Toaster richColors closeButton />
+                    <TooltipProvider>{children}</TooltipProvider>
+                </TRPCReactProvider>
             </body>
         </html>
     );

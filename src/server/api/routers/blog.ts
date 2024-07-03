@@ -49,7 +49,6 @@ export const blogRouter = createTRPCRouter({
                     changed: false,
                 };
             }
-            console.log("Incrementing...");
             await redis.incr(["pageviews", "blogs", input.slug].join(":"));
             return {
                 changed: true,
@@ -59,7 +58,6 @@ export const blogRouter = createTRPCRouter({
     viewCount: ipProcedure
         .input(z.object({ slug: z.string().min(1) }))
         .query(async ({ input }) => {
-            console.log("hello");
             const amount: number | null = await redis.get(
                 ["pageviews", "blogs", input.slug].join(":"),
             );
