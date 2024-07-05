@@ -198,7 +198,9 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                     return (
                         <Link
                             href={href ?? ""}
-                            target="_blank"
+                            target={
+                                href?.startsWith("http") ? "_blank" : undefined
+                            }
                             className={cn(
                                 className,
                                 "text-purple-600 transition-colors duration-200 hover:text-purple-400",

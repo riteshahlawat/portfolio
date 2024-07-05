@@ -1,11 +1,11 @@
 ---
 title: My Favourite Quotes
-date: 2024-06-28
+date: July 5, 2024
 image: /images/blog/my-favorite-quotes.jpeg
 description: Quotes that struck a chord with me
 ---
 
-Back in 2022 I used to journal daily. I started each journal with a quote I found online. Here's a couple of the ones that heavily aligned with me.
+Back in 2022 I used to journal daily. I started each journal with a quote I found online. Here's a couple of the ones that aligned heavily with me.
 
 ## Destiny
 
@@ -15,7 +15,7 @@ This is one of my favorite quotes. This translates to "I shall either find a way
 
 #### A little history lesson
 
-The Roman empire went face-to-face with Ancient Carthage in their imperial ambitions. Over the course of 3 wars spanning over a century, Rome lay seige to the Carthaginian empire. During the [second war](https://en.wikipedia.org/wiki/Second_Punic_War), Hannibal, a Carthaginian general, led his army towards Italy. In an effort to surprise the Romans he would have to cross the Alps by elephant. His generals advised him that this would be impossible due to the harsh climate, to which he responded with the above quote.
+The Roman empire went face-to-face with Ancient Carthage owing to their imperial ambitions. Over the course of 3 wars spanning over a century, Rome lay seige to the Carthaginian empire. During the [second war](https://en.wikipedia.org/wiki/Second_Punic_War), Hannibal, a Carthaginian general, led his army towards Italy. In an effort to surprise the Romans he would have to cross the Alps by elephant. His generals advised him that this would be impossible due to the harsh climate, to which he responded with the above quote.
 
 #### Is everything pre-determined
 
@@ -37,13 +37,31 @@ Hannibal's quote embodies the spirit of perseverance and determination. It's cru
 
 ## Legacy
 
-Birthday 2022:
+> _But how could you live and have no story to tell - Fyodor Dostoevsky_
 
-> _But how could you live and have no story to tell - Fyodor Dostoevsky (Russian Novelist, 1821-1881)_
+I actually found this quote on my 22nd birthday; an unfortunate day to feel existential dread to say the least. Dostoevsky is obviously famous for being one of the best novelists in the nineteenth century (and depending on who you ask, in human history). The quote is from a short story of his, [White Nights](https://dn790004.ca.archive.org/0/items/whitenightsother00dostiala/whitenightsother00dostiala.pdf), which is about a lonely man who forms a deep connection with a heartbroken woman. The "Dreamer"'s hopes are dashed when the woman's true love returns, having him return to his solitary life.
+
+Putting that depressing scenario aside, why do I like this quote? It encapsulates a profound truth about the human condition: our innate desire to leave a mark on this world, something that outlives us. Thankfully, we have one word for it — **legacy**.
+
+#### Stories
+
+Legacy goes beyond material wealth or accomplishments. Imagine sitting with your child, sharing the tales of your own triumphs and struggles, the mistakes that humbled you, and the dreams that pushed you forward. Stories bridge the gap between the past and the future. They provide continuity and remind us that we are part of a long lineage of storytellers, each contributing to a **collective** legacy.
+
+In the end, the quote "But how could you live and have no story to tell?" is a call to live fully and intentionally. It provokes us to create a legacy of significance, and reminds us that our stories, though [ephemeral](#ephemeral), are the most enduring gifts we can leave to the world.
 
 ## Ephemeral
 
-> _The trouble is, you think you have time - Jack Kornfield (American Writer & Buddhist Practitioner - Wrote "Buddha's Little Instruction Book")_
+> _The trouble is, you think you have time - Jack Kornfield_
+
+Everyone's legacy is limited. There is nobody who has an infinite amount of money, nor somebody who has an infinite amount of stories to tell.
+
+Everything is borrowed. The body you've spent 5 days a week at the gym for, the marriage you cherish, it's all borrowed; you don't get to have it forever. Within two weeks of stopping going to the gym, your body has already started the process of atrophying your muscles since you clearly no longer need them. Addiotnally, if you stopped caring about your marriage and about doing the little things, you are fated to grow apart.
+
+We often fall into the illusion that there will always be more time to achieve our goals, mend relationships, to tell our stories. This illusion is very strong. It makes us complacent, postponing the things that truly matter.
+
+While this may seem like a call to pessimism, it is not. The finite nature of our time is what makes it so worthwhile. Rather than succumbing under the weight of mortality, we can accept it and live with intention and gratitude. Life's challenges and sorrows, though inevitable, do not define us. Each setback, plateau, heartache, is temporary.
+
+As with many things, [**this too, shall pass**](https://en.wikipedia.org/wiki/This_too_shall_pass).
 
 ## Forgiveness
 
@@ -57,7 +75,7 @@ Deep comprehension of a person's motives, and circumstances leads naturally to a
 
 #### Empathy
 
-Empathy isn't exclusive to just the human race, it's part of many mammals. For example, in 1964 a group pf psychiatrists led by [Jules Masserman](http://www.pep-web.org/document.php?id=jaa.006.0001a) reported that rhesus monkeys refused to pull a chain that delivered food to themselves if doing so gave a shock to a companion. One monkey going so far as stopping pulling the chain for 12 days after witnessing another monkey receive a shock.
+Empathy isn't exclusive to just the human race, it's part of many mammals. For example, in 1964 a group of psychiatrists led by [Jules Masserman](http://www.pep-web.org/document.php?id=jaa.006.0001a) reported that rhesus monkeys refused to pull a chain that delivered food to themselves if doing so gave a shock to a companion. One monkey going so far as stopping pulling the chain for 12 days after witnessing another monkey receive a shock.
 
 Empathy likely evolved in mammals in the context of parental care. Signaling their current state through smiling and crying, human infants urge their parents to respond. This also applies to other primates. During the millions of years of mamallian evolution, females who were cold and distant to their offspring were out-reproduced by those who responded to their needs.
 
