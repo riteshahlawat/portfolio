@@ -78,4 +78,22 @@ Make sure the duties you fill in correspond to what's in your support letter. Af
 
 Unfortunately, due to the time I was stuck waiting, I missed my flight. Thankfully, United rescheduled me for the evening for free!!! I just had to update when I was picking up my rental car to the next day, which leads to the next section.
 
-### Planning for the move
+## Planning for the move
+
+Everyone's move is different. One person could just be bringing a few suitcases whereas another person is moving their entire apartment and the furniture along with it. I'll talk about what I did and give suggestions for alternatives. First things first, you want to get 3 things booked once you get your support letter: Flight, Hotel, Rental Car, and Apartment tours.
+
+### Flight
+
+You can enter the US on a TN visa up to 10 days before your start date. This will give you time to get settled. I booked my flight through Google Flights but that was after checking out prices from other services like Hopper and Expedia.
+
+> If you have an Amex, you might be able to save more by converting your amex points to air miles and purchasing a flight with those air miles. Do your research!
+
+### Hotel
+
+I would recommend getting a hotel for 3-4 days as a temporary place to stay while you look for an apartment and sign a lease. It's better to only book for a couple days, you can always extend your stay if you need to. I would compare local hotel prices with Airbnb as sometimes one may be drastically cheaper than the other. I was moving to Sillicon Valley and the hotels were cheaper than the Airbnbs. For those looking for a nice place to stay, the [Good Nite Inn](https://www.goodnite.com/ "Good Nite Inn Website") in Redwood City was only $99/night and was kept up really well!
+
+### Rental Car
+
+As much as you might dislike car-centric infrastructure, this one is almost a necessity. The transit infrastructure here sucks which is a surprise especially if you come from a city like Toronto (even though the transit infrastructure in SE Asian countries are much [better](https://www.tokyometro.jp/en/subwaymap/index.html "Tokyo Subway Map")). You're going be busy for the first 10 days going from place to place so you **need** a car.
+
+For those in the Bay area, check out [Kyte](https://kyte.com/ "Kyte - car rental company"). They can be significantly cheaper compared to other rental companies. I was able to rent a 2023 Volkswagon Tiguan (SUV) for 13 days for under $600! If you're bringing your own car for the move, this obviously isn't necessary.
