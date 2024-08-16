@@ -33,7 +33,7 @@ Every failed attempt holds lessons that are invaluable. These stories of struggl
 
 Hannibal's quote embodies the spirit of perseverance and determination. It's crucial to keep pushing forward and create your own path. Whether you succeed or fail, whether the future is pre-determined or not, every step you take is a testament to your resilience and drive.
 
-![Eren Yeager "I will keep moving forward"](/images/blog/eren_moving_forward.jpg)
+![Eren Yeager "I will keep moving forward"](/images/blog/eren-moving-forward.jpg)
 
 ## Legacy
 
