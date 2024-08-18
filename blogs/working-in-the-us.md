@@ -80,7 +80,7 @@ Unfortunately, due to the time I was stuck waiting, I missed my flight. Thankful
 
 ## Planning for the move
 
-Everyone's move is different. One person could just be bringing a few suitcases whereas another person is moving their entire apartment and the furniture along with it. I'll talk about what I did and give suggestions for alternatives. First things first, you want to get 3 things booked once you get your support letter: Flight, Hotel, Rental Car, and Apartment tours.
+Everyone's move is different. One person could just be bringing a few suitcases whereas another person is moving their entire apartment and the furniture along with it. I'll talk about what I did and give suggestions for alternatives. First things first, you want to get 4 things booked once you get your support letter: Flight, Hotel, Rental Car, and Apartment tours.
 
 ### Flight
 
@@ -97,3 +97,35 @@ I would recommend getting a hotel for 3-4 days as a temporary place to stay whil
 As much as you might dislike car-centric infrastructure, this one is almost a necessity. The transit infrastructure here sucks which is a surprise especially if you come from a city like Toronto (even though the transit infrastructure in SE Asian countries are much [better](https://www.tokyometro.jp/en/subwaymap/index.html "Tokyo Subway Map")). You're going be busy for the first 10 days going from place to place so you **need** a car.
 
 For those in the Bay area, check out [Kyte](https://kyte.com/ "Kyte - car rental company"). They can be significantly cheaper compared to other rental companies. I was able to rent a 2023 Volkswagon Tiguan (SUV) for 13 days for under $600! If you're bringing your own car for the move, this obviously isn't necessary.
+
+### Apartment Tours
+
+Apartments, depending on when you where you're working can be really cheap or really fucking expensive. My guess is you're going to somewhere that's really expensive. Since this is going to be somewhere you're living for the next couple years, I recommend putting a lot of effort here. You want to be searching for apartments through multiple different websites and app. Some I recommend are: [zillow](https://www.zillow.com/ "Zillow website"), [apartment list](https://www.apartmentlist.com/ "Apartment List website"), and [apartments](https://www.apartments.com/ "apartments.com website"). Create a shortlist of the apartments 1-2 weeks out from your move and reach out for tours.
+
+> If you plan your start date around a week after the 1st of a month, that can set you up perfectly as many apartments free up around the 1st.
+
+Be aiming to look at 4-5 apartments a day (which is why you need a car, commuting is too slow and ride share is too expensive). Spread them out 2-3 hours from one another which will give you time to eat and do other things.
+
+#### For those in the bay area
+
+The bay area can be pretty expensive especially if you're looking to move in San Francisco. My work was in Mountain View so I was looking for places within 15-20 minute drive from work. Despite me hearing that I'd end up spending $3000 a month on the lease for a 1b1b, I ended up finding a 2b1b for $2695 in Santa Clara (15 minutes away), and it even has a pool, jacuzzi, and EV charging 😎. Some tips:
+
+-   Look daily, even while you've already have rental viewings lined up. You might end up finding a gem that was posted 23 minutes ago, you can always cancel appointments anyways!
+-   2 bedroom apartments are not as hot on the market as 1 bedroom apartments and you might find one that is only a couple hundred more. You could share that extra room with someone or use it as an office
+-   The most important one:
+
+##### Electricity Providers
+
+Your electric bill will eat up most of the extra expenses on top of rent. The bay area has 2 providers regarding electricity, [P&E](https://www.pge.com/en.html "Pacific Gas and Electric Company") and [SVP](https://www.siliconvalleypower.com/ "Silicon Valley Power"). These two have **DRASTICALLY** different prices. P&E is far more expensive than SVP so make sure to factor that into your search and ask:
+
+![Bay Area Electricity Rates](/images/blog/bay-area-electricity-rates.jpg)
+
+## The 10 days before you start
+
+You've arrived from your airport, you got your rental car, and have a bunch of apartment viewings booked for the next couple days. That's it right?... well no.
+
+### I-94
+
+### Social Security
+
+A social security number is very important in the US. It's a unique identifier used by the government to track your earnings and determine your eligibility for benefits. You need it when signing up for credit cards, taking loans, and your employer will ask that you get one within the first couple weeks.
