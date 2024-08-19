@@ -98,6 +98,10 @@ As much as you might dislike car-centric infrastructure, this one is almost a ne
 
 For those in the Bay area, check out [Kyte](https://kyte.com/ "Kyte - car rental company"). They can be significantly cheaper compared to other rental companies. I was able to rent a 2023 Volkswagon Tiguan (SUV) for 13 days for under $600! If you're bringing your own car for the move, this obviously isn't necessary.
 
+### Bonus: Cross-border bank account
+
+Unless you plan on paying exchange fees, you have to open a cross-border bank account. BMO, RBC, and CIBC all have their own versions of cross-border accounts. I don't recommend CIBC since I couldn't deposit money the same time I opened the account, so I went to RBC. Check out your options but I recommend getting this done 2-3 weeks before your flight since it will take some time for your cards to come in the mail.
+
 ### Apartment Tours
 
 Apartments, depending on when you where you're working can be really cheap or really fucking expensive. My guess is you're going to somewhere that's really expensive. Since this is going to be somewhere you're living for the next couple years, I recommend putting a lot of effort here. You want to be searching for apartments through multiple different websites and app. Some I recommend are: [zillow](https://www.zillow.com/ "Zillow website"), [apartment list](https://www.apartmentlist.com/ "Apartment List website"), and [apartments](https://www.apartments.com/ "apartments.com website"). Create a shortlist of the apartments 1-2 weeks out from your move and reach out for tours.
@@ -126,6 +130,33 @@ You've arrived from your airport, you got your rental car, and have a bunch of a
 
 ### I-94
 
+An I-94 document is an official US document that records your arrival and departure from the United States. It's basically a record of your immigration status and the terms under which you are allowed to stay in the country. Your employer will ask for this document and you will need it to get your social security. You can get your most recent I-94 after you have gotten your TN visa [here](https://i94.cbp.dhs.gov/I94/#/recent-search). You can save this as a PDF for safekeeping on your phone but **make sure to print it** once you are in the US. The Social Security office will **require** it in physical form to give you a Social Security number. You can print this at any nearby USPS/Office Depot/Staples near you. Make sure to get this done **day 1**!
+
 ### Social Security
 
-A social security number is very important in the US. It's a unique identifier used by the government to track your earnings and determine your eligibility for benefits. You need it when signing up for credit cards, taking loans, and your employer will ask that you get one within the first couple weeks.
+A Social Security number is very important in the US. It's a unique identifier used by the government to track your earnings and determine your eligibility for benefits. You need it when signing up for credit cards, taking loans, and your employer will ask that you get one within the first couple weeks. Also make sure to get this done **day 1**. Here's what to bring to the office:
+
+-   Your passport with the TN stamp on it
+-   A piece of ID (driver's license)
+-   Your I-94 form (**printed**)
+-   An address for the card to be mailed to
+
+> Regarding the mailing address, I gave my friend's address but if you don't have anybody make sure you open up a USPS PO BOX beforehand
+
+### Bank Accounts
+
+Opening a bank account is mandatory. It's where your paycheck is going to be going to. Your cross-border bank account is fine for the short-term but for the long-term you want to open an account with an American bank. You have two main options.
+
+#### Bank of America (BoA) vs Chase
+
+BoA's benefit is that they allow you to open an account and get a credit card without needing to have a social security number yet. While it may be a secured credit card (you will have to put a deposit for that card to use it), it's still something you can use to start building credit.
+
+Chase on the other hand is a fan favorite. They have great customer service and have a ton of cards with much better perks when compared to BoA. Only downside is you need a social security number to get approved for one.
+
+My recommendation would be to use your cross border bank account temporarily and a couple days after you apply for your Social Security number, go back to the Social Security office and ask to get the number (so that you don't have to wait 1-2 weeks for it to come in the mail). After you have your number, go to chase and open an account with them and get a credit card.
+
+#### Bonus: Amex
+
+Chase has great credit cards, such as its [Sapphire](https://creditcards.chase.com/rewards-credit-cards/sapphire "Chase Saphire credit card") credit card. However, to qualify for these you would need you to have a pretty good credit score as well as looking at how many credit cards you've opened recently. You'll be looking at a year or two before you may even qualify for one of these cards, unless...
+
+If you have an Amex card in Canada, you can use your Canadian credit history to qualify for a US Amex card. This is what I did, I had no problem qualifying for the [Amex Gold](https://www.americanexpress.com/us/credit-cards/card/gold-card/) (which has similar requirements as Chase's Sapphire).
