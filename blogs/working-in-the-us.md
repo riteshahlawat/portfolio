@@ -5,7 +5,7 @@ image: /images/blog/air-canada-flying.jpg
 description: Stuff you should know when planning to move to the US on a TN work visa.
 ---
 
-Great, you accepted an offer from a US company that is willing to sponsor you! The hard part is over. All those hours you spent prepping and conducting the multiple interview rounds were worth it — you finally did it. Now you can finally relax... well not so fast.
+Great, you accepted an offer from a US company that is willing to sponsor you! The hard part is over. All those hours you spent prepping and conducting the multiple interview rounds were worth it — you finally did it. Now you can finally relax... but not so fast.
 
 > This is a lengthy article that details all that you might need to do to apply for a visa as well as stuff that I wish I knew for my move (moving furniture, apartment, bank accounts, social security, etc.)
 
@@ -26,7 +26,7 @@ H-1Bs are usually provided by bigger companies due to their larger financial res
 TN stands for Trade NAFTA (North American Free Trade Agreement). It is for Canadians and Mexicans who fall under certain criteria. Those being:
 
 -   You are a citizen of either Canada or Mexico (we will be talking only about Canada in this post)
--   You have at minimum a Bachelor's degree at an acredited university
+-   You have at minimum a Bachelor's degree from an acredited university
 -   You have an offer letter from a US company
 -   Your degree is related to the job in the offer letter
 -   The job must be a NAFTA profession (see full list [here](https://tnvisaexpert.com/tn-visa-usmca/nafta-job-list/))
@@ -35,13 +35,13 @@ TN stands for Trade NAFTA (North American Free Trade Agreement). It is for Canad
 
 > For those whose degree is different from their offer letter (Ex: Degree is in Biology but have an offer for a Product Manager role) see [here](#getting-a-work-visa)
 
-Getting a TN visa is pretty straight forward. You can get it at the border. Yeah I was surprised when I first heard this too. You apply right at customs if you're flying or at the border station if you're driving out. It only costs $50 USD as well.
+Getting a TN visa is pretty straightforward. You can get it at the border. Yeah I was surprised when I first heard this too. You apply right at customs if you're flying or at the border station if you're driving. It only costs $50 USD as well.
 
-I applied at the airport before my flight so I can tell you about my experience with that. Right after you get passed security (where they check your carry-on and stuff), you'll have to get in line to meet with a US customs officer. They will ask you your purpose for coming into the states and you will mention that you are looking to apply for a TN visa and they'll take your fingerprint and passport and take you to a separate room to wait for your interview.
+I applied at the airport before my flight so I can tell you about my experience with that. Right after you get past security (where they check your carry-on and stuff), you'll have to get in line to meet with a US customs officer. They will ask you your purpose for coming into the states and you will mention that you are looking to apply for a TN visa and they'll take your fingerprint and passport and take you to a separate room to wait for your interview.
 
 ### The dreaded interview
 
-Depending on how busy it is, it can take anywhere from 30 minutes to 2 hours to go through the entire process so I'd reccommend coming 4 hours before your flight. Another thing to note is the time at which the customs office opens. I made the mistake of booking my flight too early in the day. At Pearson (Toronto airport), the customs office opened at 3:30 AM and my flight was at 6:30 AM and due to "delays" at the customs office, I ended up missing my flight after getting my visa (United rebooked me free of charge).
+Depending on how busy it is, it can take anywhere from 30 minutes to 2 hours to go through the entire process so I'd recommend coming 4 hours before your flight. Another thing to note is the time at which the customs office opens. I made the mistake of booking my flight too early in the day. At Pearson (Toronto airport), the customs office opened at 3:30 AM and my flight was at 6:30 AM and due to "delays" at the customs office, I ended up missing my flight after getting my visa (United rebooked me free of charge).
 
 After sitting for a bit you will be called up for your interview. This part is pretty hit or miss. Officers have the right to reject your visa and there are many such cases of this happening
 
@@ -62,11 +62,11 @@ Here's what you have to bring to your interview (all printed):
 
 ### How I almost got rejected
 
-Now I knew that border agents can deny you pretty easily, but I didn't know how easily. After waiting for about 10 minutes I get called up by the border agent lady. She asks for my letter and I ask for which letter (as I had both an offer letter and a support letter from my employer). She then says sternly, **"_your letter_."**, by now in my head I know she's one of the border agents I've read about that can deny me on the smallest of things.
+Now I knew that border agents can deny you pretty easily, but I didn't know how easily. After waiting for about 10 minutes I get called up by the border agent lady. She asks for my letter, and I inquire which one, as I had both an offer letter and a support letter from my employer. She then says sternly, **"_your letter_."**, by now in my head I know she's one of the border agents I've read about that can deny me on the smallest of things.
 
 I pull out my booklet containing my documents. By booklet I mean the papers were hole punched and binded together (there were about 60 pages in total so I bounded them together so they wouldn't fall apart). She takes the booklet, looks at me with a disgusted face, and says **"_I can't accept this, I'm going to send you back from where you came from_"**.
 
-Now when I tell you I was **SHITTING MY PANTS**, I'm not kidding. She then says that she needs to photocopy them and can't when it's binded, I tell her my lawyers told me to have them bounded (they most certainly didn't LOL but if I could get away with shifting the blame I'd take it). She then replies with **"_Well you can tell them that when you get sent back_"**
+Now when I tell you I was **SHITTING MY PANTS**, I'm not kidding. She then says that she needs to photocopy them and can't when it's binded, I tell her my lawyers told me to have them bound (they most certainly didn't LOL but if I could get away with shifting the blame I'd take it). She then replies with **"_Well you can tell them that when you get sent back_"**
 
 ![Woe is me](/images/blog/crying-creature.png)
 
@@ -88,6 +88,18 @@ You can enter the US on a TN visa up to 10 days before your start date. This wil
 
 > If you have an Amex, you might be able to save more by converting your amex points to air miles and purchasing a flight with those air miles. Do your research!
 
+ATM withdrawals have limits so I recommend bringing cash over the border. You can bring up to $10'000 CAD across the border without having to declare it. Unfortunately bank foreign exchange rates can set you back so I recommend finding a third-party foreign exchange business near you (this may or may not be legal so do at your own risk).
+
+#### Luggage
+
+In addition to your flight you might be moving lots of stuff. You have two options, rent a U-Haul and drive the stuff yourself or have a moving company do it for you. Depending on the distance you might be paying a couple thousand for the moving company. I'd search around a lot if you're planning on going this route since the quotes moving companies can give differ **DRASTICALLY**. One quoted me $2000 and another quoted me $1000 for moving about 10 boxes.
+
+There is a third option, take some stuff with you on your flight. Yeah seriously! I was planning on take 2-3 suitcases with my clothing and other items. However, I also was planning on taking my PC, two monitors, and my chair. I had spent a pretty penny on my [office chair](https://www.hinomi.co/products/hinomi-h1-pro-ergonomic-office-chair) so I really didn't want to buy another one lol.
+
+Most airlines have allowances of overweight and oversized checked baggages. For Air Canada you're allowed to have your overweight baggage be up to 70lbs and up to 115 inches in linear dimensions (height + width + length). In this way I was able to put my chair (it folds) and one of my monitors into one large cardboard box. I had another cardboard box for my PC and some clothes I stuffed in it but that fit the regular limits of checked baggage.
+
+Oversized and overweight baggage only costs $100-$120 so it was really worth it over having them shipped in a truck.
+
 ### Hotel
 
 I would recommend getting a hotel for 3-4 days as a temporary place to stay while you look for an apartment and sign a lease. It's better to only book for a couple days, you can always extend your stay if you need to. I would compare local hotel prices with Airbnb as sometimes one may be drastically cheaper than the other. I was moving to Sillicon Valley and the hotels were cheaper than the Airbnbs. For those looking for a nice place to stay, the [Good Nite Inn](https://www.goodnite.com/ "Good Nite Inn Website") in Redwood City was only $99/night and was kept up really well!
@@ -100,27 +112,27 @@ For those in the Bay area, check out [Kyte](https://kyte.com/ "Kyte - car rental
 
 ### Bonus: Cross-border bank account
 
-Unless you plan on paying exchange fees, you have to open a cross-border bank account. BMO, RBC, and CIBC all have their own versions of cross-border accounts. I don't recommend CIBC since I couldn't deposit money the same time I opened the account, so I went to RBC. Check out your options but I recommend getting this done 2-3 weeks before your flight since it will take some time for your cards to come in the mail.
+Unless you plan on paying exchange fees, you have to open a cross-border bank account. BMO, RBC, and CIBC all have their own versions of cross-border accounts. I don't recommend CIBC, as I couldn't deposit money at the same time I opened the account, so I went with RBC. Check out your options but I recommend getting this done 2-3 weeks before your flight since it will take some time for your cards to come in the mail.
 
 ### Apartment Tours
 
 Apartments, depending on when you where you're working can be really cheap or really fucking expensive. My guess is you're going to somewhere that's really expensive. Since this is going to be somewhere you're living for the next couple years, I recommend putting a lot of effort here. You want to be searching for apartments through multiple different websites and app. Some I recommend are: [zillow](https://www.zillow.com/ "Zillow website"), [apartment list](https://www.apartmentlist.com/ "Apartment List website"), and [apartments](https://www.apartments.com/ "apartments.com website"). Create a shortlist of the apartments 1-2 weeks out from your move and reach out for tours.
 
-> If you plan your start date around a week after the 1st of a month, that can set you up perfectly as many apartments free up around the 1st.
+> Planning your start date around a week after the 1st of a month can be ideal, as many apartments become available around that time.
 
-Be aiming to look at 4-5 apartments a day (which is why you need a car, commuting is too slow and ride share is too expensive). Spread them out 2-3 hours from one another which will give you time to eat and do other things.
+Be aiming to look at 4-5 apartments a day (which is why you need a car — commuting is too slow, and rideshare is too expensive.). Spread them out 2-3 hours from one another which will give you time to eat and do other things.
 
 #### For those in the bay area
 
 The bay area can be pretty expensive especially if you're looking to move in San Francisco. My work was in Mountain View so I was looking for places within 15-20 minute drive from work. Despite me hearing that I'd end up spending $3000 a month on the lease for a 1b1b, I ended up finding a 2b1b for $2695 in Santa Clara (15 minutes away), and it even has a pool, jacuzzi, and EV charging 😎. Some tips:
 
--   Look daily, even while you've already have rental viewings lined up. You might end up finding a gem that was posted 23 minutes ago, you can always cancel appointments anyways!
+-   Look daily, even if you already have rental viewings lined up. You might end up finding a gem that was posted 23 minutes ago, you can always cancel appointments anyways!
 -   2 bedroom apartments are not as hot on the market as 1 bedroom apartments and you might find one that is only a couple hundred more. You could share that extra room with someone or use it as an office
 -   The most important one:
 
 ##### Electricity Providers
 
-Your electric bill will eat up most of the extra expenses on top of rent. The bay area has 2 providers regarding electricity, [P&E](https://www.pge.com/en.html "Pacific Gas and Electric Company") and [SVP](https://www.siliconvalleypower.com/ "Silicon Valley Power"). These two have **DRASTICALLY** different prices. P&E is far more expensive than SVP so make sure to factor that into your search and ask:
+Your electric bill will eat up most of the extra expenses on top of rent. The Bay Area has two electricity providers, [P&E](https://www.pge.com/en.html "Pacific Gas and Electric Company") and [SVP](https://www.siliconvalleypower.com/ "Silicon Valley Power"). These two have **DRASTICALLY** different prices. P&E is far more expensive than SVP so make sure to factor that into your search and ask:
 
 ![Bay Area Electricity Rates](/images/blog/bay-area-electricity-rates.jpg)
 
@@ -130,7 +142,7 @@ You've arrived from your airport, you got your rental car, and have a bunch of a
 
 ### I-94
 
-An I-94 document is an official US document that records your arrival and departure from the United States. It's basically a record of your immigration status and the terms under which you are allowed to stay in the country. Your employer will ask for this document and you will need it to get your social security. You can get your most recent I-94 after you have gotten your TN visa [here](https://i94.cbp.dhs.gov/I94/#/recent-search). You can save this as a PDF for safekeeping on your phone but **make sure to print it** once you are in the US. The Social Security office will **require** it in physical form to give you a Social Security number. You can print this at any nearby USPS/Office Depot/Staples near you. Make sure to get this done **day 1**!
+An I-94 document is an official U.S. record of your arrival and departure. It's basically a record of your immigration status and the terms under which you are allowed to stay in the country. Your employer will ask for this document and you will need it to get your social security. You can get your most recent I-94 after you have gotten your TN visa [here](https://i94.cbp.dhs.gov/I94/#/recent-search). You can save this as a PDF for safekeeping on your phone but **make sure to print it** once you are in the US. The Social Security office will **require** it in physical form to give you a Social Security number. You can print this at any nearby USPS/Office Depot/Staples near you. Make sure to get this done **day 1**!
 
 ### Social Security
 
@@ -141,7 +153,7 @@ A Social Security number is very important in the US. It's a unique identifier u
 -   Your I-94 form (**printed**)
 -   An address for the card to be mailed to
 
-> Regarding the mailing address, I gave my friend's address but if you don't have anybody make sure you open up a USPS PO BOX beforehand
+> Regarding the mailing address, I used a friend's address, but if you don't have someone, make sure to open a USPS PO BOX beforehand
 
 ### Bank Accounts
 
@@ -153,10 +165,20 @@ BoA's benefit is that they allow you to open an account and get a credit card wi
 
 Chase on the other hand is a fan favorite. They have great customer service and have a ton of cards with much better perks when compared to BoA. Only downside is you need a social security number to get approved for one.
 
-My recommendation would be to use your cross border bank account temporarily and a couple days after you apply for your Social Security number, go back to the Social Security office and ask to get the number (so that you don't have to wait 1-2 weeks for it to come in the mail). After you have your number, go to chase and open an account with them and get a credit card.
+I recommend using your cross-border bank account temporarily. A couple of days after applying for your Social Security number, return to the Social Security office to obtain the number in person, so you don't have to wait 1-2 weeks for it to arrive by mail. After you have your number, go to chase and open an account with them and get a credit card.
 
 #### Bonus: Amex
 
 Chase has great credit cards, such as its [Sapphire](https://creditcards.chase.com/rewards-credit-cards/sapphire "Chase Saphire credit card") credit card. However, to qualify for these you would need you to have a pretty good credit score as well as looking at how many credit cards you've opened recently. You'll be looking at a year or two before you may even qualify for one of these cards, unless...
 
-If you have an Amex card in Canada, you can use your Canadian credit history to qualify for a US Amex card. This is what I did, I had no problem qualifying for the [Amex Gold](https://www.americanexpress.com/us/credit-cards/card/gold-card/) (which has similar requirements as Chase's Sapphire).
+If you have an Amex card in Canada, you can use your Canadian credit history to qualify for a US Amex card. This is what I did, and I had no problem qualifying for the [Amex Gold](https://www.americanexpress.com/us/credit-cards/card/gold-card/) (which has similar requirements as Chase's Sapphire).
+
+## For Future
+
+By now you should have mostly everything set up. Some small closing notes.
+
+### Credit History
+
+Since you are a new arrival, you will have a credit score of 0. Your credit score is everything in this country, if you want to take loans and get approved for good interest rates you want to put attention to this one single number. It may take about **3-6 months** to generate your first credit score. Make sure you pay your credit card bills on time **and** the full amount (nobody wants to pay money on interest). Increase your credit card limits after a few months (as they may be low initially), keep usage under 30% of your limit, and avoid opening too many credit cards. Within a year you'll have a score over 700.
+
+### Driver's License
