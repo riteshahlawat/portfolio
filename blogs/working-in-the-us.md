@@ -1,6 +1,6 @@
 ---
 title: Working in the US - TN visa
-date: Aug 1, 2024
+date: Aug 20, 2024
 image: /images/blog/air-canada-flying.jpg
 description: Stuff you should know when planning to move to the US on a TN work visa.
 ---
