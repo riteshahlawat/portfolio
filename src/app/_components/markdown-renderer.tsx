@@ -214,7 +214,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 li: (props) => {
                     const { children, className, ...rest } = props;
                     return (
-                        <li className={cn(className, "ml-4 ")} {...rest}>
+                        <li className={cn(className, "ml-4")} {...rest}>
                             {children}
                         </li>
                     );
@@ -224,7 +224,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <ol
                             className={cn(
                                 className,
-                                "my-2 ml-5 list-decimal [&>*]:ml-8 [&>*]:before:mr-0 [&>*]:before:content-['']",
+                                "mb-6 ml-5 mt-2 list-decimal [&>*]:ml-8",
                             )}
                             {...rest}
                         >
@@ -237,7 +237,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <ul
                             className={cn(
                                 className,
-                                "my-2 ml-5 list-none [&>*]:before:mr-1 [&>*]:before:content-['-'] ",
+                                "mb-6 ml-5 mt-2 list-none [&>*]:before:mr-1 [&>*]:before:content-['-'] ",
                             )}
                             {...rest}
                         >
