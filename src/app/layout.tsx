@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner";
 const fontSans = FontSans({
     subsets: ["latin"],
     variable: "--font-sans",
+    display: "swap",
 });
 
 export const metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
             lang="en"
             suppressHydrationWarning
             style={{ scrollBehavior: "smooth" }}
+            className={fontSans.variable}
         >
             <body
                 className={cn(
