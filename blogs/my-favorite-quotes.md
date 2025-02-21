@@ -55,7 +55,7 @@ In the end, the quote "But how could you live and have no story to tell?" is a c
 
 Everyone's legacy is limited. There is nobody who has an infinite amount of money, nor somebody who has an infinite amount of stories to tell.
 
-Everything is borrowed. The body you've spent 5 days a week at the gym for, the marriage you cherish, it's all borrowed; you don't get to have it forever. Within two weeks of stopping going to the gym, your body has already started the process of atrophying your muscles since you clearly no longer need them. Addiotnally, if you stopped caring about your marriage and about doing the little things, you are fated to grow apart.
+Everything is borrowed. The body you've spent 5 days a week at the gym for, the marriage you cherish, it's all borrowed; you don't get to have it forever. Within two weeks of stopping going to the gym, your body has already started the process of atrophying your muscles since you clearly no longer need them. Additionally, if you stopped caring about your marriage and about doing the little things, you are fated to grow apart.
 
 We often fall into the illusion that there will always be more time to achieve our goals, mend relationships, to tell our stories. This illusion is very strong. It makes us complacent, postponing the things that truly matter.
 
