@@ -1,10 +1,10 @@
 [
     {
-        "company": "Athelas",
+        "company": "Commure",
         "position": "Software Engineer",
         "startDate": "2024-07-01",
-        "summary": "· Infrastructure.",
-        "url": "https://www.athelas.com/"
+        "summary": "• Architected high-scale payment processing infrastructure using Python/FastAPI, PostgreSQL, and Redis that processes $5M+ in healthcare payments across 9 million patient encounters - refactored legacy system into a more scalable architecture supporting real-time encounter-level posting.\n• Designed and launched a claims reconciliation platform using React, TypeScript, and MUI that achieved 100% adoption across all healthcare sites - led technical design while collaborating with ops, design, and account management teams to standardize workflows and provide real-time visibility into blocked claims.\n• Drove development of automated insurance detection system using Python/FastAPI in 2-person team, identifying missing coverage and resubmitting over 14k claims automatically - saved patients $1.54M in out-of-pocket costs and increased eligibility denial auto-resubmission rate from 12% to 20%.",
+        "url": "https://www.commure.com/"
     },
     {
         "company": "BlueCat",

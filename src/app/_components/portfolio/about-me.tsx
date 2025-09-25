@@ -34,8 +34,8 @@ export default function AboutMe() {
                 <em> (failed) </em>
                 AI startup, and knowing too much about networks for my own good.
                 Currently working on Infra @{" "}
-                <ExternalTextLink href="https://www.athelas.com/">
-                    Athelas
+                <ExternalTextLink href="https://www.commure.com/">
+                    Commure
                 </ExternalTextLink>
                 . Originally from Toronto but living in Mountain View right now
                 :)
