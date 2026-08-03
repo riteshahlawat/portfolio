@@ -30,7 +30,7 @@ export default function RootLayout({
                         <React.Fragment key={path}>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                                <BreadcrumbLink>
+                                <BreadcrumbLink asChild>
                                     <Link href={`/blog/${path}`}>{path}</Link>
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
@@ -45,13 +45,13 @@ export default function RootLayout({
             <Breadcrumb className="fixed z-10 w-full bg-zinc-900 py-4 pl-6">
                 <BreadcrumbList>
                     <BreadcrumbItem>
-                        <BreadcrumbLink>
+                        <BreadcrumbLink asChild>
                             <Link href="/">home</Link>
                         </BreadcrumbLink>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbLink>
+                        <BreadcrumbLink asChild>
                             <Link href="/blog">blog</Link>
                         </BreadcrumbLink>
                     </BreadcrumbItem>

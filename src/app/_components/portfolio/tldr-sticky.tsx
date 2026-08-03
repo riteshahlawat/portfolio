@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import ExternalIconLink from "../links/external-icon-link";
 import SectionLink from "../section-link";
 import { useAtomValue } from "jotai";
@@ -10,7 +10,7 @@ export default function TLDRSticky() {
     const activeSection = useAtomValue(activeSectionAtom);
 
     return (
-        <div className=" flex flex-col justify-between pb-6 md:fixed md:h-full md:w-fit md:pb-36">
+        <div className="flex flex-col justify-between pb-6 md:fixed md:h-full md:w-fit md:pb-36">
             <div>
                 <h1 className="text-5xl font-semibold text-zinc-200">
                     Ritesh Ahlawat
@@ -18,11 +18,11 @@ export default function TLDRSticky() {
                 <h3 className="mt-2 text-xl font-normal text-zinc-200">
                     Software Engineer
                 </h3>
-                <p className="mt-4 text-sm font-light ">
+                <p className="mt-4 text-sm font-light">
                     I make things that work... eventually.
                 </p>
 
-                <div className="mt-12 hidden flex-col md:flex ">
+                <div className="mt-12 hidden flex-col md:flex">
                     <SectionLink
                         text="About"
                         idToScrollTo="about-me"
@@ -47,13 +47,13 @@ export default function TLDRSticky() {
             </div>
             <div className="mt-6 flex w-full flex-row gap-4 md:mt-0">
                 <ExternalIconLink href="https://github.com/riteshahlawat">
-                    <Github className="size-5" />
+                    <FaGithub className="size-5" />
                 </ExternalIconLink>
                 <ExternalIconLink href="https://www.linkedin.com/in/ritesh-ahlawat/">
-                    <Linkedin className="size-5" />
+                    <FaLinkedin className="size-5" />
                 </ExternalIconLink>
                 <ExternalIconLink href="https://www.instagram.com/riteshahlawat1">
-                    <Instagram className="size-5" />
+                    <FaInstagram className="size-5" />
                 </ExternalIconLink>
             </div>
         </div>

@@ -9,6 +9,7 @@ import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
 import remarkSuperSub from "remark-supersub";
+import { isValidElement, type ReactNode } from "react";
 
 import { cn, headerTextToId } from "@/lib/utils";
 import Link from "next/link";
@@ -18,6 +19,19 @@ SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("json", json);
 SyntaxHighlighter.registerLanguage("bash", bash);
+
+function reactNodeToText(node: ReactNode): string {
+    if (typeof node === "string" || typeof node === "number") {
+        return String(node);
+    }
+    if (Array.isArray(node)) {
+        return node.map(reactNodeToText).join("");
+    }
+    if (isValidElement<{ children?: ReactNode }>(node)) {
+        return reactNodeToText(node.props.children);
+    }
+    return "";
+}
 
 export default function MarkdownRenderer({ content }: { content: string }) {
     return (
@@ -60,7 +74,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         </SyntaxHighlighter>
                     ) : (
                         <code
-                            className="rounded bg-zinc-850 px-1.5 py-1 text-zinc-50 before:content-[''] after:content-none"
+                            className="bg-zinc-850 rounded px-1.5 py-1 text-zinc-50 before:content-[''] after:content-none"
                             {...rest}
                         >
                             {children}
@@ -69,7 +83,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 },
                 h1: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
                     return (
                         <BlogHeading headerComponentId={headerComponentId}>
@@ -89,7 +103,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
 
                 h2: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
 
                     return (
@@ -109,7 +123,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 },
                 h3: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
                     return (
                         <BlogHeading headerComponentId={headerComponentId}>
@@ -128,7 +142,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 },
                 h4: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
                     return (
                         <BlogHeading headerComponentId={headerComponentId}>
@@ -147,7 +161,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 },
                 h5: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
                     return (
                         <BlogHeading headerComponentId={headerComponentId}>
@@ -166,7 +180,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 },
                 h6: ({ children, className, ...rest }) => {
                     const headerComponentId = headerTextToId(
-                        children?.toString(),
+                        reactNodeToText(children),
                     );
                     return (
                         <BlogHeading headerComponentId={headerComponentId}>
@@ -188,7 +202,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <hr
                             className={cn(
                                 className,
-                                " mt-1 border-zinc-700 py-2",
+                                "mt-1 border-zinc-700 py-2",
                             )}
                             {...rest}
                         />
@@ -224,7 +238,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <ol
                             className={cn(
                                 className,
-                                "mb-6 ml-5 mt-2 list-decimal [&>*]:ml-8",
+                                "mt-2 mb-6 ml-5 list-decimal [&>*]:ml-8",
                             )}
                             {...rest}
                         >
@@ -237,7 +251,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <ul
                             className={cn(
                                 className,
-                                "mb-6 ml-5 mt-2 list-none [&>*]:before:mr-1 [&>*]:before:content-['-'] ",
+                                "mt-2 mb-6 ml-5 list-none [&>*]:before:mr-1 [&>*]:before:content-['-']",
                             )}
                             {...rest}
                         >
@@ -250,7 +264,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                         <blockquote
                             className={cn(
                                 className,
-                                "my-4 border-s-4 border-zinc-600 bg-zinc-850 p-4",
+                                "bg-zinc-850 my-4 border-s-4 border-zinc-600 p-4",
                             )}
                             {...rest}
                         >

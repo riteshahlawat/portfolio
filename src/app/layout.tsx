@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { TRPCReactProvider } from "@/trpc/react";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Inter as FontSans } from "next/font/google";
@@ -38,10 +37,8 @@ export default function RootLayout({
                 )}
             >
                 <Analytics />
-                <TRPCReactProvider>
-                    <Toaster richColors closeButton />
-                    <TooltipProvider>{children}</TooltipProvider>
-                </TRPCReactProvider>
+                <Toaster richColors closeButton />
+                <TooltipProvider>{children}</TooltipProvider>
             </body>
         </html>
     );

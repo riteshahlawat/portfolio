@@ -9,22 +9,24 @@ import { notFound } from "next/navigation";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
-export const generateStaticParams = async () => {
+type BlogPostPageProps = {
+    params: Promise<{ slug: string }>;
+};
+
+export const generateStaticParams = () => {
     return allBlogPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 };
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const post = allBlogPosts.find(
-        (post) => post._raw.flattenedPath === params.slug,
-    );
+export const generateMetadata = async ({ params }: BlogPostPageProps) => {
+    const { slug } = await params;
+    const post = allBlogPosts.find((post) => post._raw.flattenedPath === slug);
     if (!post) return { title: "Not found" };
 
     return { title: post.title };
 };
-export default function BlogPost({ params }: { params: { slug: string } }) {
-    const post = allBlogPosts.find(
-        (post) => post._raw.flattenedPath === params.slug,
-    );
+export default async function BlogPost({ params }: BlogPostPageProps) {
+    const { slug } = await params;
+    const post = allBlogPosts.find((post) => post._raw.flattenedPath === slug);
 
     if (!post) {
         notFound();
@@ -34,13 +36,13 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         <article
             className={cn(
                 openSans.className,
-                "mx-auto max-w-[768px] pb-24 pt-14 md:pt-20",
+                "mx-auto max-w-[768px] pt-14 pb-24 md:pt-20",
             )}
         >
             <div className="relative h-auto w-full overflow-hidden rounded-none md:rounded-md">
                 <Image
                     src={post.image}
-                    priority={true}
+                    preload
                     alt="Image"
                     width={1920}
                     height={1080}
@@ -61,10 +63,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                         {format(parseISO(post.date), "LLL d, yyyy")} ·{" "}
                         {post.readTimeMinutes} min read
                     </p>
-                    <BlogViewCount slug={params.slug} />
+                    <BlogViewCount slug={slug} />
                 </div>
             </div>
-            <div className="mt-12 px-4  font-medium text-zinc-200 ">
+            <div className="mt-12 px-4 font-medium text-zinc-200">
                 <MarkdownRenderer content={post.body.raw} />
             </div>
         </article>
