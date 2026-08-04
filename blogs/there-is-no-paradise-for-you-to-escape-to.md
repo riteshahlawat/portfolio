@@ -3,11 +3,16 @@ title: There Is No Paradise for You to Escape To
 date: Aug 3, 2026
 image: /images/blog/there-is-no-paradise-for-you-to-escape-to.png
 description: Paradise is not arrival, escape, or a city waiting beyond the horizon.
+shortTitle: no paradise
+tags:
+    - philosophy
 ---
 
 ## city of gold
 
-> The country hath more quantity of gold, by manifold, than the best parts of the Indies, or Peru - Sir Walter Releigh on Guiana and the city called El Dorado (The Discovery of Guiana, 1596)
+> The country hath more quantity of gold, by manifold, than the best parts of the Indies, or Peru
+>
+> — Sir Walter Raleigh, on Guiana and the city called El Dorado (The Discovery of Guiana, 1596)
 
 Releigh returned to England with tales of a place called El Dorado. A city of gold. The gold was so abundant that the king bathed in it daily; his servants blowing gold onto his oiled skin each morning (lowk freaky). Raleigh's claims authored centuries of obsession.
 
@@ -47,7 +52,8 @@ When there's one version of you, and that version is the only one left to be.
 
 ## paradise is not escape
 
-> "There is no paradise for you to escape to".
+> "There is no paradise for you to escape to."
+>
 > — Berserk
 
 It is one of my favorite lines from any manga. In context, it is brutal: a man who has suffered more than most characters in fiction is told that the relief he seeks will never come. There is no distant place where the suffering will end.

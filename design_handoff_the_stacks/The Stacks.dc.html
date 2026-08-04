@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0e0e10;font-family:'Instrument Sans',sans-serif}
+::selection{background:rgba(139,124,248,.4)}
+a{color:#8b7cf8}a:hover{color:#a89bff}
+@keyframes pawFade{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(.6) translateY(-6px)}}
+@keyframes twinkle{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes flicker{0%,100%{transform:scale(1) rotate(-1deg);opacity:.95}30%{transform:scale(1.1) rotate(2deg);opacity:1}60%{transform:scale(.92) rotate(-2deg);opacity:.85}}
+@keyframes toastIn{0%{opacity:0;transform:translate(-50%,14px)}100%{opacity:1;transform:translate(-50%,0)}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#0e0e10;color:#b5b2aa;display:flex;flex-direction:column">
+  <div ref="{{ pawRef }}"></div>
+
+  <nav style="display:flex;justify-content:space-between;align-items:baseline;padding:28px 0 0;max-width:1000px;width:100%;margin:0 auto;box-sizing:border-box;padding-left:32px;padding-right:32px">
+    <span onClick="{{ navHome }}" style="font:500 13px 'IBM Plex Mono',monospace;color:#f2efe8;cursor:pointer;letter-spacing:.04em">ritesh ahlawat{{ catTail }}</span>
+    <div style="display:flex;gap:26px;align-items:baseline;font-size:13px">
+      <sc-if value="{{ catMode }}" hint-placeholder-val="{{ false }}"><span onClick="{{ toggleCatMode }}" style="font:400 11px 'IBM Plex Mono',monospace;color:#c9a55e;cursor:pointer;border:1px solid rgba(201,165,94,.35);padding:3px 9px;border-radius:100px" title="turn off cat mode">🐾 :3 on</span></sc-if>
+      <span onClick="{{ navHome }}" style="color:{{ navColorLibrary }};cursor:pointer">library</span>
+      <span onClick="{{ navAbout }}" style="color:{{ navColorAbout }};cursor:pointer">about</span>
+    </div>
+  </nav>
+
+  <!-- ================= HOME / LIBRARY ================= -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main data-screen-label="Library" style="flex:1;max-width:1000px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px">
+    <div style="padding:64px 0 36px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <h1 style="margin:0;font:italic 400 42px/1.2 'Newsreader',serif;color:#f2efe8;max-width:20ch;text-wrap:pretty">A library of things I couldn't say out loud.{{ catTail }}</h1>
+      <p style="margin:0 0 8px;font-size:13px;line-height:1.7;color:#7a7770;text-align:right">engineer @ <a href="https://mercury.com" target="_blank" rel="noreferrer" style="color:#c9c6bf;text-decoration:none">mercury</a> · i run <a href="https://aranova.io/" target="_blank" rel="noreferrer" style="color:#8b7cf8;text-decoration:underline;text-underline-offset:3px">aranova</a></p>
+    </div>
+    <div style="display:flex;gap:10px;padding-bottom:30px;flex-wrap:wrap;align-items:center">
+      <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="3">
+        <span onClick="{{ chip.pick }}" style="font:500 12px 'IBM Plex Mono',monospace;color:{{ chip.color }};background:{{ chip.bg }};border:1px solid {{ chip.border }};padding:6px 14px;border-radius:100px;white-space:nowrap;cursor:pointer">{{ chip.label }}</span>
+      </sc-for>
+    </div>
+    <div>
+      <sc-for list="{{ years }}" as="yr" hint-placeholder-count="2">
+        <div style="margin-bottom:14px">
+          <p style="margin:0 0 2px;font:500 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.14em">{{ yr.year }}</p>
+          <sc-for list="{{ yr.posts }}" as="p" hint-placeholder-count="2">
+            <div onClick="{{ p.open }}" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:{{ p.cursor }};opacity:{{ p.op }}" style-hover="background:rgba(139,124,248,.05)">
+              <span style="font:400 12px 'IBM Plex Mono',monospace;color:#57544e;width:36px;flex:none">{{ p.idx }}</span>
+              <span style="font:italic 400 20px 'Newsreader',serif;color:#e8e5dd;flex:1;min-width:200px">{{ p.title }} <span style="font:400 10px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">{{ p.note }}</span></span>
+              <span style="font-size:11.5px;color:#8b7cf8;flex:none">{{ p.tag }}</span>
+              <span style="font:400 12px 'IBM Plex Mono',monospace;color:#57544e;flex:none;width:112px;text-align:right;white-space:nowrap">{{ p.meta }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:44px 0 10px">
+      <p style="margin:0;font:500 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.14em">START HERE — THE SHELF</p>
+      <div style="display:flex;gap:14px;margin-top:20px;align-items:flex-end;max-width:760px">
+        <div onClick="{{ openParadise }}" style="flex:1.15;height:200px;background:linear-gradient(160deg,#231c3d,#3a2d68);border-radius:6px;padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;cursor:pointer" style-hover="transform:translateY(-6px)">
+          <span style="font:italic 400 17px/1.35 'Newsreader',serif;color:#e8e5dd">there is no paradise for you to escape to</span>
+          <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8b7cf8">nº 003 · 5 min</span>
+        </div>
+        <div onClick="{{ openVisa }}" style="flex:1;height:172px;background:linear-gradient(160deg,#1d1d20,#2c2c31);border-radius:6px;padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;cursor:pointer" style-hover="transform:translateY(-6px)">
+          <span style="font:italic 400 17px/1.35 'Newsreader',serif;color:#e8e5dd">working in the us — tn visa</span>
+          <span style="font:400 10px 'IBM Plex Mono',monospace;color:#a5a29a">nº 002 · 15 min</span>
+        </div>
+        <div onClick="{{ openQuotesPost }}" style="flex:1;height:184px;background:linear-gradient(160deg,#1f1a15,#2e2418);border-radius:6px;padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;cursor:pointer" style-hover="transform:translateY(-6px)">
+          <span style="font:italic 400 17px/1.35 'Newsreader',serif;color:#e8e5dd">my favourite quotes</span>
+          <span style="font:400 10px 'IBM Plex Mono',monospace;color:#c9a55e">nº 001 · 7 min</span>
+        </div>
+        <div onClick="{{ navQuotes }}" title="untitled" style="flex:none;width:46px;height:158px;background:#141416;border-radius:6px;border:1px dashed rgba(139,124,248,.22);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#8b7cf8;background:#17161c">
+          <span style="font:400 10px 'IBM Plex Mono',monospace;color:#3a3a3e;writing-mode:vertical-rl">untitled</span>
+        </div>
+        <sc-if value="{{ catMode }}" hint-placeholder-val="{{ false }}"><div style="flex:none;font-size:22px;margin-left:-6px" title=":3">🐈‍⬛</div></sc-if>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= POST: PARADISE ================= -->
+  <sc-if value="{{ isParadise }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Post: No Paradise" style="flex:1;max-width:720px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:56px 0 0">
+      <p style="margin:0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e"><span onClick="{{ navHome }}" style="cursor:pointer;color:#7a7770">library</span> / nº 003</p>
+      <h1 style="margin:20px 0 0;font:italic 400 38px/1.2 'Newsreader',serif;color:#f2efe8;text-wrap:pretty">There Is No Paradise for You to Escape To</h1>
+      <div style="display:flex;gap:14px;margin-top:14px;font-size:12.5px;color:#7a7770"><span>aug 3, 2026</span><span style="color:#3a3a3e">·</span><span>5 min</span><span style="color:#3a3a3e">·</span><span>2,418 views{{ catTail }}</span></div>
+    </div>
+    <div style="padding:36px 0 20px;font-size:16px;line-height:1.8;color:#b5b2aa">
+      <p style="margin:0 0 8px;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">city of gold</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(139,124,248,.5);font:italic 400 17px/1.65 'Newsreader',serif;color:#d6d3cd">The country hath more quantity of gold, by manifold, than the best parts of the Indies, or Peru <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— sir walter raleigh on guiana and the city called el dorado, 1596</span></blockquote>
+      <p style="margin:18px 0 0"><span style="float:left;font:italic 400 58px/0.8 'Newsreader',serif;color:#f2efe8;padding:8px 10px 0 0">R</span>aleigh returned to England with tales of a place called El Dorado. A city of gold. The gold was so abundant that the king bathed in it daily; his servants blowing gold onto his oiled skin each morning (lowk freaky). Raleigh's claims authored centuries of obsession.</p>
+      <p style="margin:16px 0 0">Dozens of expeditions disappeared into the Amazon, consumed by a wilderness that cared little for ambition. Many died chasing a dream that only existed between <em style="color:#e8e5dd">desire</em> and <em style="color:#e8e5dd">delusion</em>.</p>
+      <p style="margin:16px 0 0">It was never found. The Muisca people of Colombia covered their chief in gold dust during ceremonies. The ritual was real. But somewhere across oceans and languages, a ceremony became a kingdom, a kingdom became a city, and a city became a dream.</p>
+      <p style="margin:16px 0 0">We're all chasing El Dorado: the perfect career, the ideal relationship, the life that finally feels complete. We imagine it waiting somewhere beyond the horizon, and tell ourselves the present dissatisfaction is simply the distance between us and paradise.</p>
+      <p style="margin:16px 0 0"><span onClick="{{ navEldorado }}" title="?" style="color:#c9a55e;cursor:pointer">El Dorado</span> is not real.</p>
+      <p style="margin:34px 0 8px;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">paradise is not arrival</p>
+      <p style="margin:16px 0 0">I used to know how to crochet. At the end, you have to tie off the final loop. Miss it, and a single pull can undo hours of work, reducing something intricate to a pile of string. It is frustrating, but at least the failure is legible. You know what came loose. You know where to begin again.</p>
+      <p style="margin:16px 0 0">Crochet has a final loop. A life does not.</p>
+      <p style="margin:16px 0 0">Where does <em style="color:#e8e5dd">paradise</em> lie? We treat it as a destination, something waiting to be handed to us once we have worked, suffered, or improved enough. But who decides when we have arrived? Who is supposed to hand it over?</p>
+      <p style="margin:16px 0 0">We often recognize what was good only after it is gone.</p>
+      <p style="margin:16px 0 0">Complacency feels like death, so we flee it, often in circles. The relationship that once felt electric becomes suffocating, so we leave and find someone new who makes us feel alive again, until they do not. The job that promised meaning becomes routine, so we pivot. The city starts to feel dull, so we move.</p>
+      <p style="margin:16px 0 0">"It's just not what it used to be," we say, mistaking the fading of novelty for the failure of the thing itself.</p>
+      <p style="margin:16px 0 0">Change is good. But movement without direction is just an elaborate standstill.</p>
+      <p style="margin:16px 0 0">This restlessness is not accidental. We're a species for whom wanting more often meant surviving longer. The urge to seek, compare, improve, and move helped carry us here. It also made arrival almost impossible.</p>
+      <p style="margin:16px 0 0">Jealousy is another expression of the same restlessness. Why does someone have something I don't? I deserve it more, obviously, because I'm me, and I'm better than they are... Right?</p>
+      <p style="margin:16px 0 0">Paradise, I think, is not arrival but coherence: the alignment of values, actions, and identity into a life that holds together.</p>
+      <p style="margin:16px 0 0">It is when the "why" behind your actions needs no witness. When growth in one part of your life no longer requires decay in another. When wealth does not corrode intimacy, mastery does not hollow out joy, and knowledge does not dissolve meaning.</p>
+      <p style="margin:16px 0 0">When there's one version of you, and that version is the only one left to be.</p>
+      <p style="margin:34px 0 8px;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">paradise is not escape</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid #8b7cf8;font:italic 400 19px/1.6 'Newsreader',serif;color:#d6d3cd">"There is no paradise for you to escape to." <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— berserk</span></blockquote>
+      <p style="margin:16px 0 0">It is one of my favorite lines from any manga. In context, it is brutal: a man who has suffered more than most characters in fiction is told that the relief he seeks will never come. There is no distant place where the suffering will end.</p>
+      <p style="margin:16px 0 0">Maybe that is why escape is so seductive. It asks nothing of us except the departure. A different job. A different city. A different relationship. Another country, another experience, another stamp in the passport. Somewhere else, we imagine, life will finally become weightless.</p>
+      <p style="margin:16px 0 0">There is a vision of the good life increasingly built around this idea: earn enough to remain unburdened, travel often, avoid obligations, preserve your freedom, and collect as many pleasant experiences as possible before time runs out.</p>
+      <p style="margin:16px 0 0">I understand the appeal. I am not convinced it is enough.</p>
+      <p style="margin:16px 0 0">Pleasure ends with the person experiencing it. The meal is eaten. The country is visited. The photograph is taken. The memory fades. Then another experience is needed to replace it.</p>
+      <p style="margin:16px 0 0">A life centered entirely on the self must constantly feed the self.</p>
+      <p style="margin:16px 0 0">There are many answers to this: children, ideas, art, institutions, discoveries, communities, and people whose lives are different because yours touched them. Each carries something beyond the boundaries of one body and one lifetime.</p>
+      <p style="margin:16px 0 0">Without that continuation, what remains when the experiences are over?</p>
+      <p style="margin:16px 0 0">What did your freedom make possible? Whom did your comfort protect? What did you create that another person can inherit? Which lives contain evidence that you were here?</p>
+      <p style="margin:16px 0 0">There is no paradise for us to escape to.</p>
+      <p style="margin:16px 0 0">So what are we supposed to build <span onClick="{{ nav404 }}" title="?" style="border-bottom:1px dashed rgba(139,124,248,.5);cursor:pointer;color:#d6d3cd">here</span>?</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:26px 0 0;border-top:1px solid rgba(255,255,255,.07);font-size:13px">
+      <span onClick="{{ openVisa }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">← nº 002 · working in the us</span>
+      <span onClick="{{ navHome }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">back to the library</span>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= POST: VISA ================= -->
+  <sc-if value="{{ isVisa }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Post: TN Visa" style="flex:1;max-width:720px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:56px 0 0">
+      <p style="margin:0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e"><span onClick="{{ navHome }}" style="cursor:pointer;color:#7a7770">library</span> / nº 002</p>
+      <h1 style="margin:20px 0 0;font:italic 400 38px/1.2 'Newsreader',serif;color:#f2efe8;text-wrap:pretty">Working in the US — the TN Visa</h1>
+      <div style="display:flex;gap:14px;margin-top:14px;font-size:12.5px;color:#7a7770"><span>aug 20, 2024</span><span style="color:#3a3a3e">·</span><span>15 min</span><span style="color:#3a3a3e">·</span><span>11,206 views{{ catTail }}</span></div>
+    </div>
+    <div style="padding:36px 0 20px;font-size:16px;line-height:1.8;color:#b5b2aa">
+      <p style="margin:0"><span style="float:left;font:italic 400 58px/0.8 'Newsreader',serif;color:#f2efe8;padding:8px 10px 0 0">G</span>reat, you accepted an offer from a US company that is willing to sponsor you! The hard part is over. All those hours you've spent prepping for interviews was worth it — you finally did it. Now you can finally relax... but not so fast.</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(139,124,248,.5);font:italic 400 16px/1.65 'Newsreader',serif;color:#d6d3cd">This is a lengthy article that details all that you might need to do to apply for a visa as well as stuff I wish I knew for my move — moving furniture, apartment, bank accounts, social security, etc.</blockquote>
+      <p style="margin:16px 0 0;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">getting a work visa</p>
+      <p style="margin:16px 0 0">There are two different types of work visas in the US: immigration and non-immigration. Unless you qualify for the rare cases (L-1, E-2, O-1), you are left with either a TN visa or an H-1B. The TN is a non-immigrant visa for Canadians and Mexicans — and you can get it right at the border for $50.</p>
+      <div style="margin:24px 0;border-radius:8px;overflow:hidden;max-width:440px"><img src="public/images/blog/visa-stamp.jpg" alt="TN visa stamp" style="width:100%;display:block"></div>
+      <p style="margin:16px 0 0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e">(prototype shows the opening — the full 15-minute guide migrates over as-is: the interview, the support letter, the move, SSN, banks, apartments, electricity providers.)</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:26px 0 0;border-top:1px solid rgba(255,255,255,.07);font-size:13px">
+      <span onClick="{{ openQuotesPost }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">← nº 001 · my favourite quotes</span>
+      <span onClick="{{ openParadise }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">nº 003 · no paradise →</span>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= POST: QUOTES ================= -->
+  <sc-if value="{{ isQuotesPost }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Post: Favourite Quotes" style="flex:1;max-width:720px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:56px 0 0">
+      <p style="margin:0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e"><span onClick="{{ navHome }}" style="cursor:pointer;color:#7a7770">library</span> / nº 001</p>
+      <h1 style="margin:20px 0 0;font:italic 400 38px/1.2 'Newsreader',serif;color:#f2efe8;text-wrap:pretty">My Favourite Quotes</h1>
+      <div style="display:flex;gap:14px;margin-top:14px;font-size:12.5px;color:#7a7770"><span>jul 5, 2024</span><span style="color:#3a3a3e">·</span><span>7 min</span><span style="color:#3a3a3e">·</span><span>1,873 views{{ catTail }}</span></div>
+    </div>
+    <div style="padding:36px 0 20px;font-size:16px;line-height:1.8;color:#b5b2aa">
+      <p style="margin:0">Back in 2022 I used to journal daily. I started each journal with a quote I found online. Here's a couple of the ones that aligned heavily with me.</p>
+      <p style="margin:30px 0 0;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">destiny</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(201,165,94,.5);font:italic 400 18px/1.6 'Newsreader',serif;color:#d6d3cd">Aut viam inveniam aut faciam <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— hannibal of carthage · "i shall either find a way or make one"</span></blockquote>
+      <p style="margin:16px 0 0">During the Second Punic War, Hannibal led his army toward Italy. To surprise the Romans he would have to cross the Alps by elephant. His generals advised him this would be impossible due to the harsh climate — he responded with the above.</p>
+      <p style="margin:16px 0 0">Hannibal's quote embodies perseverance and determination. Whether you succeed or fail, whether the future is pre-determined or not, every step you take is a testament to your resilience and drive.</p>
+      <p style="margin:30px 0 0;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">legacy</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(201,165,94,.5);font:italic 400 18px/1.6 'Newsreader',serif;color:#d6d3cd">But how could you live and have no story to tell? <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— fyodor dostoevsky · white nights</span></blockquote>
+      <p style="margin:16px 0 0">It encapsulates a profound truth about the human condition: our innate desire to leave a mark on this world, something that outlives us. Stories bridge the gap between the past and the future — they remind us we are part of a long lineage of storytellers, each contributing to a collective legacy.</p>
+      <p style="margin:30px 0 0;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">ephemeral</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(201,165,94,.5);font:italic 400 18px/1.6 'Newsreader',serif;color:#d6d3cd">The trouble is, you think you have time. <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— jack kornfield</span></blockquote>
+      <p style="margin:16px 0 0">Everything is borrowed. The body you've spent 5 days a week at the gym for, the marriage you cherish — you don't get to have it forever. The finite nature of our time is what makes it so worthwhile. As with many things, this too, shall pass.</p>
+      <p style="margin:30px 0 0;font:400 14px 'IBM Plex Mono',monospace;color:#8b7cf8">forgiveness</p>
+      <blockquote style="margin:18px 0;padding:4px 0 4px 22px;border-left:2px solid rgba(201,165,94,.5);font:italic 400 18px/1.6 'Newsreader',serif;color:#d6d3cd">To understand everything is to forgive everything. <span style="display:block;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;font-style:normal">— madame de staël</span></blockquote>
+      <p style="margin:16px 0 0">Deep comprehension of a person's motives and circumstances leads naturally to forgiveness. By understanding the full context of someone's behavior, one might find it easier to empathize with them and forgive any perceived wrongs. Empathy paves the way.</p>
+      <p style="margin:24px 0 0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e">(condensed for the prototype — full essay migrates over.)</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:26px 0 0;border-top:1px solid rgba(255,255,255,.07);font-size:13px">
+      <span onClick="{{ navZero }}" style="color:#2e2d31;cursor:pointer" style-hover="color:#57544e">← there is nothing before the first post</span>
+      <span onClick="{{ openVisa }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">nº 002 · working in the us →</span>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= ABOUT ================= -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="About" style="flex:1;max-width:760px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:56px 0 0">
+      <p style="margin:0;font:400 12px 'IBM Plex Mono',monospace;color:#8b7cf8">about</p>
+      <h1 style="margin:16px 0 0;font:italic 400 40px/1.2 'Newsreader',serif;color:#f2efe8">hi, i'm ritesh.{{ catTail }}</h1>
+    </div>
+    <div style="display:flex;gap:36px;padding:28px 0 0;align-items:flex-start;flex-wrap:wrap">
+      <div style="flex:1;min-width:320px;font-size:15px;line-height:1.8;color:#b5b2aa">
+        <p style="margin:0">I'm an awkward blend of full-stack and deep learning — born to descend the gradient, forced to <code style="font:400 13px 'IBM Plex Mono',monospace;background:#1c1c1f;color:#c4b5fd;padding:2px 6px;border-radius:4px">POST /upload</code>. These days I'm an engineer at <a href="https://mercury.com" target="_blank" rel="noreferrer">Mercury</a>; before that I built healthcare payments infrastructure at Commure. I also run <a href="https://aranova.io/" target="_blank" rel="noreferrer">Aranova</a>, a marketing agency.</p>
+        <p style="margin:14px 0 0">Originally from Toronto, now in the Bay Area. Away from the keyboard I'm olympic weightlifting, playing chess, or being owned by two cats{{ catTail }}.</p>
+        <p style="margin:14px 0 0">I write essays here — about ambition, escape, and what's actually worth building. It's the hardest skill I practice, which is the point.</p>
+      </div>
+      <div onMouseDown="{{ pressStart }}" onMouseUp="{{ pressEnd }}" onMouseLeave="{{ pressEnd }}" onTouchStart="{{ pressStart }}" onTouchEnd="{{ pressEnd }}" style="flex:none;width:170px;transform:rotate(2deg);cursor:grab;user-select:none">
+        <sc-if value="{{ polaroidFront }}" hint-placeholder-val="{{ true }}">
+          <div style="background:#1a1a1d;padding:7px 7px 26px;border-radius:3px;box-shadow:0 6px 20px rgba(0,0,0,.5)"><img src="uploads/DSC06419.jpg" alt="Ritesh at night under string lights" style="width:100%;display:block;border-radius:2px;pointer-events:none" draggable="false"><p style="margin:8px 0 0;font:400 9.5px 'IBM Plex Mono',monospace;color:#57544e;text-align:center">somewhere warm, after dark</p></div>
+        </sc-if>
+        <sc-if value="{{ polaroidBack }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#e9e5d8;padding:7px;border-radius:3px;box-shadow:0 6px 20px rgba(0,0,0,.5);aspect-ratio:170/240;display:flex;align-items:center;justify-content:center"><p style="margin:0;font:italic 400 15px/1.6 'Newsreader',serif;color:#3a3a35;text-align:center;padding:0 12px;transform:rotate(-2deg)">for the plot.<br><span style="font-size:11px;color:#8a8578">— r, 2026</span></p></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="padding:44px 0 10px">
+      <p style="margin:0 0 6px;font:500 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.14em">EXPERIENCE</p>
+      <sc-for list="{{ jobs }}" as="job" hint-placeholder-count="4">
+        <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+          <span style="flex:none;width:118px;font:400 12px 'IBM Plex Mono',monospace;color:#57544e;padding-top:3px">{{ job.dates }}</span>
+          <div style="flex:1">
+            <p style="margin:0;font-size:15px;color:#e8e5dd;font-weight:600">{{ job.role }} · {{ job.company }}</p>
+            <sc-for list="{{ job.bullets }}" as="b" hint-placeholder-count="1">
+              <p style="margin:8px 0 0;font-size:13px;line-height:1.65;color:#8f8c85">{{ b.text }}</p>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:30px 0 10px">
+      <p style="margin:0 0 12px;font:500 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.14em">BUILT ALONG THE WAY</p>
+      <p style="margin:0;font-size:14px;line-height:1.75;color:#8f8c85"><span style="color:#e8e5dd">Thia AI</span> — a desktop-native AutoML app, my <em>(failed)</em> AI startup. <span style="color:#e8e5dd">This site</span> — where the writing lives.</p>
+    </div>
+    <div style="display:flex;gap:18px;padding:26px 0 0;font-size:13px">
+      <a href="https://github.com/riteshahlawat" target="_blank" rel="noreferrer" style="color:#7a7770;text-decoration:none" style-hover="color:#8b7cf8">github</a>
+      <a href="https://www.linkedin.com/in/ritesh-ahlawat/" target="_blank" rel="noreferrer" style="color:#7a7770;text-decoration:none" style-hover="color:#8b7cf8">linkedin</a>
+      <a href="https://www.instagram.com/riteshahlawat1" target="_blank" rel="noreferrer" style="color:#7a7770;text-decoration:none" style-hover="color:#8b7cf8">instagram</a>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= QUOTES SHRINE (EGG) ================= -->
+  <sc-if value="{{ isQuotes }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Egg: Quotes Shrine" style="flex:1;max-width:640px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:56px 0 0;text-align:center">
+      <div onClick="{{ blowCandle }}" title="don't." style="display:inline-block;cursor:pointer;font-size:30px;position:relative">
+        <sc-if value="{{ candleLit }}" hint-placeholder-val="{{ true }}"><span style="display:inline-block;animation:flicker 1.6s ease-in-out infinite">🕯️</span></sc-if>
+        <sc-if value="{{ candleOut }}" hint-placeholder-val="{{ false }}"><span style="filter:grayscale(1) brightness(.5)">🕯️</span></sc-if>
+      </div>
+      <p style="margin:14px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#c9a55e;letter-spacing:.3em">THE SHRINE · 2022</p>
+      <p style="margin:14px 0 0;font-size:13px;line-height:1.7;color:#7a7770;max-width:44ch;margin-left:auto;margin-right:auto">Back when I journaled daily, every entry opened with a quote. This room keeps them lit.</p>
+      <sc-if value="{{ candleOut }}" hint-placeholder-val="{{ false }}"><p style="margin:10px 0 0;font:italic 400 15px 'Newsreader',serif;color:#e8e5dd">some things you keep lit.</p></sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;padding:40px 0 20px;opacity:{{ shrineOpacity }}">
+      <div style="border-left:2px solid #c9a55e;padding:4px 0 4px 20px"><p style="margin:0;font:italic 400 19px/1.55 'Newsreader',serif;color:#e8e5dd">Aut viam inveniam aut faciam.</p><p style="margin:6px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e">hannibal · i shall either find a way or make one</p></div>
+      <div style="border-left:2px solid rgba(201,165,94,.4);padding:4px 0 4px 20px"><p style="margin:0;font:italic 400 19px/1.55 'Newsreader',serif;color:#c9c6bf">But how could you live and have no story to tell?</p><p style="margin:6px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e">dostoevsky · white nights</p></div>
+      <div style="border-left:2px solid rgba(201,165,94,.4);padding:4px 0 4px 20px"><p style="margin:0;font:italic 400 19px/1.55 'Newsreader',serif;color:#c9c6bf">The trouble is, you think you have time.</p><p style="margin:6px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e">jack kornfield</p></div>
+      <div style="border-left:2px solid rgba(201,165,94,.4);padding:4px 0 4px 20px"><p style="margin:0;font:italic 400 19px/1.55 'Newsreader',serif;color:#c9c6bf">To understand everything is to forgive everything.</p><p style="margin:6px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e">madame de staël</p></div>
+      <div style="border-left:2px solid rgba(201,165,94,.4);padding:4px 0 4px 20px"><p style="margin:0;font:italic 400 19px/1.55 'Newsreader',serif;color:#c9c6bf">This too, shall pass.</p><p style="margin:6px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e">persian adage</p></div>
+    </div>
+    <p style="margin:20px 0 0;text-align:center;font-size:13px"><span onClick="{{ navHome }}" style="color:#7a7770;cursor:pointer" style-hover="color:#8b7cf8">← back to the library</span></p>
+  </main>
+  </sc-if>
+
+  <!-- ================= EL DORADO (EGG) ================= -->
+  <sc-if value="{{ isEldorado }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Egg: El Dorado" style="flex:1;max-width:640px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out;position:relative">
+    <div style="position:absolute;inset:0;background:radial-gradient(2px 2px at 20% 20%,rgba(232,200,122,.5),transparent),radial-gradient(1.5px 1.5px at 70% 15%,rgba(232,200,122,.4),transparent),radial-gradient(1px 1px at 45% 45%,rgba(232,200,122,.35),transparent),radial-gradient(1.5px 1.5px at 85% 60%,rgba(232,200,122,.3),transparent),radial-gradient(1px 1px at 15% 70%,rgba(232,200,122,.3),transparent);animation:twinkle 3.5s ease-in-out infinite;pointer-events:none"></div>
+    <div style="padding:80px 0 40px;text-align:center;position:relative">
+      <p style="margin:0;font:400 11px 'IBM Plex Mono',monospace;color:#8a6d3b;letter-spacing:.35em">YOU FOUND IT</p>
+      <h1 style="margin:22px 0 0;font:italic 400 58px/1.1 'Newsreader',serif;background:linear-gradient(90deg,#8a6d3b,#f0d38a,#8a6d3b);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite">El Dorado</h1>
+      <p style="margin:10px 0 0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.3em">POPULATION: {{ eldoradoPopulation }}</p>
+      <div style="max-width:46ch;margin:36px auto 0;text-align:left;font-size:14.5px;line-height:1.85;color:#a5a29a">
+        <p style="margin:0">Raleigh never found it. The expeditions never came back. Somewhere along the way a ceremony became a kingdom, a kingdom became a city, and a city became a dream.</p>
+        <p style="margin:14px 0 0">And you — you clicked a word in an essay on a stranger's website. Of everyone who ever went looking, you got here cheapest.</p>
+        <p style="margin:14px 0 0">There's still no gold. There's only the reminder:</p>
+        <p style="margin:22px 0 0;text-align:center;font:italic 400 19px 'Newsreader',serif;color:#e8c87a">the search was the expensive part.</p>
+      </div>
+      <p style="margin:40px 0 0;font-size:13px"><span onClick="{{ navHome }}" style="color:#7a7770;cursor:pointer" style-hover="color:#e8c87a">close the map. go build something. →</span></p>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= ENTRY 000 (EGG) ================= -->
+  <sc-if value="{{ isZero }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Egg: Entry 000" style="flex:1;max-width:640px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:64px 0 20px">
+      <p style="margin:0;font:400 11px 'IBM Plex Mono',monospace;color:#57544e;letter-spacing:.25em">ENTRY Nº 000 — UNLISTED</p>
+      <h1 style="margin:18px 0 0;font:italic 400 34px/1.25 'Newsreader',serif;color:#f2efe8">the post before the first post</h1>
+      <div style="margin-top:30px;background:#141416;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:28px 32px;font:italic 400 16px/1.9 'Newsreader',serif;color:#c9c6bf">
+        <p style="margin:0">note to self, unedited —</p>
+        <p style="margin:14px 0 0">you talk for a living. sales calls, demos, standups. words cost you nothing out loud and everything on paper. that's the tell.</p>
+        <p style="margin:14px 0 0">so: write the hard ones down. in public. where quitting is visible.</p>
+        <p style="margin:14px 0 0">— r</p>
+      </div>
+      <p style="margin:18px 0 0;font:400 12px 'IBM Plex Mono',monospace;color:#57544e">arrays start at zero. so did i. · <span onClick="{{ openQuotesPost }}" style="color:#8b7cf8;cursor:pointer">nº 001 →</span></p>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= 404 (EGG) ================= -->
+  <sc-if value="{{ is404 }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Egg: 404" style="flex:1;max-width:640px;width:100%;margin:0 auto;box-sizing:border-box;padding:0 32px;animation:fadeUp .4s ease-out">
+    <div style="padding:64px 0 20px">
+      <p style="margin:0;font:italic 400 120px/1 'Newsreader',serif;color:#1c1c1f">404</p>
+      <h1 style="margin:8px 0 0;font:italic 400 30px/1.35 'Newsreader',serif;color:#e8e5dd">there is no page for you to escape to.</h1>
+      <div style="margin-top:22px;font-size:14.5px;line-height:1.85;color:#8f8c85;max-width:52ch">
+        <p style="margin:0">You came here looking for something that doesn't exist. Most of us spend years doing that — different job, different city, different person, same search bar.</p>
+        <p style="margin:14px 0 0">The good news: the way back is one click, not one lifetime.</p>
+      </div>
+      <p style="margin:26px 0 0;font-size:13px"><span onClick="{{ navHome }}" style="color:#8b7cf8;cursor:pointer">← go home</span></p>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="max-width:1000px;width:100%;margin:0 auto;box-sizing:border-box;padding:44px 32px 30px;display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+    <span style="font-size:12px;color:#57544e">© mmxxvi · built at night{{ catTail }}</span>
+    <span onClick="{{ toggleDrawer }}" title="the drawer" style="font:400 12px 'IBM Plex Mono',monospace;color:#57544e;cursor:pointer" style-hover="color:#8b7cf8">🥚 <span style="color:#8b7cf8">{{ eggCount }}</span>/7 found</span>
+  </footer>
+
+  <!-- ================= DRAWER OVERLAY ================= -->
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ toggleDrawer }}" style="position:fixed;inset:0;background:rgba(8,8,10,.78);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(3px)">
+    <div onClick="{{ eatClick }}" style="background:#141416;border:1px solid rgba(139,124,248,.25);border-radius:14px;padding:32px 36px;max-width:520px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:fadeUp .25s ease-out">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <p style="margin:0;font:500 12px 'IBM Plex Mono',monospace;color:#c9a55e;letter-spacing:.2em">THE DRAWER · {{ eggCount }}/7</p>
+        <span onClick="{{ toggleDrawer }}" style="font:400 12px 'IBM Plex Mono',monospace;color:#57544e;cursor:pointer">esc ✕</span>
+      </div>
+      <p style="margin:12px 0 0;font-size:12.5px;color:#7a7770">everything you've found on this site lives here. find all seven and something changes.</p>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-top:18px">
+        <sc-for list="{{ drawerItems }}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)">
+            <span style="flex:none;font-size:16px;opacity:{{ d.op }}">{{ d.icon }}</span>
+            <span style="flex:none;width:130px;font:500 12px 'IBM Plex Mono',monospace;color:{{ d.nameColor }}">{{ d.label }}</span>
+            <span style="flex:1;font-size:12px;line-height:1.55;color:#57544e;font-style:italic">{{ d.sub }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ allFound }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:18px 0 0;text-align:center;font:italic 400 16px 'Newsreader',serif;background:linear-gradient(90deg,#8a6d3b,#f0d38a,#8a6d3b);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite">all seven. the lamp is yours, night owl.</p>
+      </sc-if>
+      <p style="margin:16px 0 0;text-align:right"><span onClick="{{ resetHunt }}" style="font:400 11px 'IBM Plex Mono',monospace;color:#3a3a3e;cursor:pointer" style-hover="color:#8b7cf8">reset the hunt</span></p>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= TOAST ================= -->
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#1c1a26;border:1px solid rgba(139,124,248,.35);border-radius:100px;padding:10px 22px;font:500 12.5px 'IBM Plex Mono',monospace;color:#e8e5dd;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:toastIn .3s ease-out;white-space:nowrap">{{ toast }}</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFuturePosts&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Library&quot;}, &quot;pawTrail&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Cat mode&quot;}}">
+class Component extends DCLogic {
+  state = { route: "home", filter: "all", eggs: {}, catMode: false, drawerOpen: false, candleOut: false, polaroidBack: false, toast: null };
+
+  componentDidMount() {
+    try {
+      const eggs = JSON.parse(localStorage.getItem("stacks-eggs") || "{}");
+      const catMode = localStorage.getItem("stacks-cat") === "1";
+      this.setState({ eggs, catMode });
+    } catch (e) {}
+    this.onHash = () => this.applyHash();
+    window.addEventListener("hashchange", this.onHash);
+    this.applyHash();
+    this.keyBuf = ""; this.konami = [];
+    this.onKey = (ev) => {
+      const K = ["arrowup","arrowup","arrowdown","arrowdown","arrowleft","arrowright","arrowleft","arrowright","b","a"];
+      this.konami.push((ev.key || "").toLowerCase());
+      if (this.konami.length > 10) this.konami.shift();
+      if (this.konami.length === 10 && K.every((k, i) => this.konami[i] === k)) { this.konami = []; this.toggleCat(); return; }
+      if (ev.key === "Escape" && this.state.drawerOpen) { this.setState({ drawerOpen: false }); return; }
+      if (ev.key && ev.key.length === 1) {
+        this.keyBuf = (this.keyBuf + ev.key).slice(-2);
+        if (this.keyBuf === ":3") { this.keyBuf = ""; this.toggleCat(); }
+      }
+    };
+    window.addEventListener("keydown", this.onKey);
+    this.lastPaw = { x: -999, y: -999 };
+    this.onMove = (ev) => {
+      if (!this.state.catMode || (this.props.pawTrail ?? true) === false) return;
+      const dx = ev.clientX - this.lastPaw.x, dy = ev.clientY - this.lastPaw.y;
+      if (dx * dx + dy * dy < 5200) return;
+      this.lastPaw = { x: ev.clientX, y: ev.clientY };
+      this.spawnPaw(ev.clientX, ev.clientY);
+    };
+    window.addEventListener("mousemove", this.onMove);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this.onHash);
+    window.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("mousemove", this.onMove);
+  }
+
+  applyHash() {
+    const h = (location.hash || "#/").replace(/^#\/?/, "");
+    const parts = h.split("/").filter(Boolean);
+    let route = "home";
+    if (parts.length === 0) route = "home";
+    else if (parts[0] === "post" && ["paradise", "visa", "quotes-post"].includes(parts[1])) route = "post-" + parts[1];
+    else if (["about", "quotes", "el-dorado", "000"].includes(parts[0])) route = parts[0];
+    else route = "404";
+    if (route === "quotes") this.grantEgg("shrine", "the shrine");
+    if (route === "el-dorado") this.grantEgg("eldorado", "el dorado");
+    if (route === "000") this.grantEgg("zero", "entry nº 000");
+    if (route === "404") this.grantEgg("notfound", "the missing page");
+    this.setState({ route, drawerOpen: false });
+    window.scrollTo(0, 0);
+  }
+
+  nav(path) { if (("#" + path) === location.hash) this.applyHash(); else location.hash = path; }
+
+  grantEgg(id, label) {
+    if (this.state.eggs[id]) return;
+    const eggs = { ...this.state.eggs, [id]: true };
+    try { localStorage.setItem("stacks-eggs", JSON.stringify(eggs)); } catch (e) {}
+    const n = Object.keys(eggs).length;
+    this.setState({ eggs, toast: "🥚 " + n + "/7 found — " + label });
+    clearTimeout(this.tt);
+    this.tt = setTimeout(() => this.setState({ toast: null }), 3200);
+  }
+
+  toggleCat() {
+    const catMode = !this.state.catMode;
+    try { localStorage.setItem("stacks-cat", catMode ? "1" : "0"); } catch (e) {}
+    this.setState({ catMode });
+    document.title = catMode ? "ritesh ahlawat :3" : "ritesh ahlawat";
+    if (catMode) this.grantEgg("cat", "cat mode :3");
+  }
+
+  spawnPaw(x, y) {
+    const layer = this.pawLayer;
+    if (!layer) return;
+    const d = document.createElement("div");
+    d.textContent = "🐾";
+    d.style.cssText = "position:fixed;left:" + (x - 8) + "px;top:" + (y - 8) + "px;font-size:13px;pointer-events:none;z-index:9999;animation:pawFade .9s ease-out forwards;transform:rotate(" + (Math.random() * 60 - 30) + "deg)";
+    layer.appendChild(d);
+    setTimeout(() => d.remove(), 950);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const cat = s.catMode;
+    const POSTS = [
+      { slug: "paradise", idx: "003", title: "there is no paradise for you to escape to", tag: "philosophy", year: "2026", meta: "aug 3 · 2.4k" },
+      { slug: "visa", idx: "002", title: "working in the us — tn visa", tag: "practical", year: "2024", meta: "aug 20 · 11.2k" },
+      { slug: "quotes-post", idx: "001", title: "my favourite quotes", tag: "philosophy", year: "2024", meta: "jul 5 · 1.9k" },
+    ];
+    const FUTURE = [
+      { idx: "···", title: "the next essay", tag: "—", year: "2026", meta: "soon · —", dim: true, note: "— in the drafts" },
+    ];
+    const showFuture = this.props.showFuturePosts ?? false;
+    const visible = POSTS.filter((p) => s.filter === "all" || p.tag === s.filter);
+    const yearsOrder = ["2026", "2024"];
+    const years = yearsOrder
+      .map((year) => {
+        let posts = visible.filter((p) => p.year === year);
+        if (showFuture && year === "2026" && s.filter === "all") posts = [...FUTURE, ...posts];
+        return {
+          year,
+          posts: posts.map((p) => ({
+            idx: p.idx, title: p.title, tag: p.tag, meta: p.meta,
+            note: p.note || "", op: p.dim ? 0.38 : 1, cursor: p.dim ? "default" : "pointer",
+            open: p.slug ? () => this.nav("/post/" + p.slug) : () => {},
+          })),
+        };
+      })
+      .filter((y) => y.posts.length > 0);
+    const tags = [
+      { id: "all", label: "all · " + POSTS.length },
+      { id: "philosophy", label: "philosophy" },
+      { id: "practical", label: "practical" },
+    ];
+    const chips = tags.map((t) => {
+      const active = s.filter === t.id;
+      return {
+        label: t.label,
+        color: active ? "#0e0e10" : "#a5a29a",
+        bg: active ? "#8b7cf8" : "transparent",
+        border: active ? "#8b7cf8" : "rgba(255,255,255,.14)",
+        pick: () => this.setState({ filter: t.id }),
+      };
+    });
+    const JOBS = [
+      { dates: "2026 — now", role: "Software Engineer", company: "Mercury", bullets: ["Remote, SF Bay Area. Fintech infrastructure."] },
+      { dates: "2024 — 2026", role: "Software Engineer", company: "Commure", bullets: [
+        "Architected high-scale payment processing infrastructure (Python/FastAPI, PostgreSQL, Redis) processing $5M+ in healthcare payments across 9 million patient encounters — refactored a legacy system into a scalable architecture supporting real-time encounter-level posting.",
+        "Designed and launched a claims reconciliation platform (React, TypeScript, MUI) with 100% adoption across all healthcare sites — led technical design across ops, design, and account management.",
+        "Drove an automated insurance detection system in a 2-person team, resubmitting 14k+ claims automatically — saved patients $1.54M out-of-pocket and raised auto-resubmission from 12% to 20%.",
+      ] },
+      { dates: "2023 — 2024", role: "Software Engineer", company: "BlueCat", bullets: [
+        "Built an internal tool anonymizing customer databases for testing; helped implement a DDNS update distribution service across DNS/DHCP clusters; automated table partitioning via database triggers.",
+      ] },
+      { dates: "2021 — 2022", role: "ML Research Assistant", company: "TMU", bullets: [
+        "Innovated a novel image-compression ML algorithm for gigapixel image classification — 96.39% accuracy; research submitted to the ImNO conference.",
+      ] },
+      { dates: "2021", role: "SWE Intern", company: "BlueCat", bullets: ["TLS encryption between DNS/DHCP server channels; 10+ automation tests, 20+ bug fixes."] },
+      { dates: "2020", role: "SWE Intern", company: "Ontario MTO", bullets: ["ML models for highway detection, vehicle tracking, and lane detection — improved real-time performance 775%, enabling 4-stream inference on one GPU."] },
+      { dates: "2019 — 2021", role: "Research Assistant", company: "TMU", bullets: ["Deep-learning speech recognition for single-switch users; built a school management system supporting video calls (WebRTC)."] },
+    ];
+    const EGG_DEFS = [
+      { id: "cat", icon: "🐈‍⬛", name: "cat mode", hint: "say hi in their language. or the old cheat code." },
+      { id: "shrine", icon: "🕯️", name: "the shrine", hint: "one book on the shelf never got a title." },
+      { id: "candle", icon: "🌬️", name: "the candle", hint: "in the shrine, try blowing one out." },
+      { id: "eldorado", icon: "🗺️", name: "el dorado", hint: "hidden where it was declared unreal." },
+      { id: "zero", icon: "0️⃣", name: "entry nº 000", hint: "there is nothing before the first post. look anyway." },
+      { id: "notfound", icon: "🚪", name: "the missing page", hint: "the last essay ends with a question. click it." },
+      { id: "polaroid", icon: "📷", name: "the polaroid", hint: "hold the photograph like you mean it." },
+    ];
+    const eggCount = EGG_DEFS.filter((d) => s.eggs[d.id]).length;
+    const drawerItems = EGG_DEFS.map((d) => {
+      const found = !!s.eggs[d.id];
+      return {
+        icon: found ? d.icon : "❓", op: found ? 1 : 0.35,
+        label: found ? d.name : "???", nameColor: found ? "#c4b5fd" : "#3a3a3e",
+        sub: d.hint,
+      };
+    });
+    const r = s.route;
+    const onLibrary = r === "home" || r.startsWith("post-");
+    return {
+      isHome: r === "home",
+      isParadise: r === "post-paradise",
+      isVisa: r === "post-visa",
+      isQuotesPost: r === "post-quotes-post",
+      isAbout: r === "about",
+      isQuotes: r === "quotes",
+      isEldorado: r === "el-dorado",
+      isZero: r === "000",
+      is404: r === "404",
+      navColorLibrary: onLibrary ? "#8b7cf8" : "#7a7770",
+      navColorAbout: r === "about" ? "#8b7cf8" : "#7a7770",
+      navHome: () => this.nav("/"),
+      navAbout: () => this.nav("/about"),
+      navQuotes: () => this.nav("/quotes"),
+      navEldorado: () => this.nav("/el-dorado"),
+      navZero: () => this.nav("/000"),
+      nav404: () => this.nav("/here"),
+      openParadise: () => this.nav("/post/paradise"),
+      openVisa: () => this.nav("/post/visa"),
+      openQuotesPost: () => this.nav("/post/quotes-post"),
+      chips, years, jobs: JOBS,
+      catMode: cat,
+      catTail: cat ? " :3" : "",
+      eldoradoPopulation: cat ? "YOU + 1 CAT" : "YOU",
+      toggleCatMode: () => this.toggleCat(),
+      pawRef: (el) => { this.pawLayer = el; },
+      eggCount, drawerItems,
+      allFound: eggCount === 7,
+      drawerOpen: s.drawerOpen,
+      toggleDrawer: () => this.setState({ drawerOpen: !s.drawerOpen }),
+      resetHunt: (ev) => {
+        ev.stopPropagation();
+        try { localStorage.setItem("stacks-eggs", "{}"); localStorage.setItem("stacks-cat", "0"); } catch (e) {}
+        document.title = "ritesh ahlawat";
+        this.setState({ eggs: {}, catMode: false, toast: "the drawer is empty again." });
+        clearTimeout(this.tt);
+        this.tt = setTimeout(() => this.setState({ toast: null }), 2600);
+      },
+      eatClick: (ev) => ev.stopPropagation(),
+      toast: s.toast,
+      candleLit: !s.candleOut,
+      candleOut: s.candleOut,
+      shrineOpacity: s.candleOut ? 0.25 : 1,
+      blowCandle: () => {
+        if (s.candleOut) return;
+        this.setState({ candleOut: true });
+        this.grantEgg("candle", "the candle");
+        clearTimeout(this.ct);
+        this.ct = setTimeout(() => this.setState({ candleOut: false }), 2600);
+      },
+      polaroidFront: !s.polaroidBack,
+      polaroidBack: s.polaroidBack,
+      pressStart: () => {
+        clearTimeout(this.pt);
+        this.pt = setTimeout(() => { this.setState({ polaroidBack: true }); this.grantEgg("polaroid", "the polaroid"); }, 850);
+      },
+      pressEnd: () => {
+        clearTimeout(this.pt);
+        if (this.state.polaroidBack) { clearTimeout(this.pbt); this.pbt = setTimeout(() => this.setState({ polaroidBack: false }), 1800); }
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

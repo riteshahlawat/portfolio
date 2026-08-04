@@ -5,9 +5,17 @@ export const BlogPost = defineDocumentType(() => ({
     filePathPattern: `**/*.md`,
     fields: {
         title: { type: "string", required: true },
+        shortTitle: { type: "string", required: false },
         date: { type: "date", required: true },
         image: { type: "string", required: true },
         description: { type: "string", required: true },
+        tags: { type: "list", of: { type: "string" }, default: [] },
+        dropCap: { type: "boolean", default: true },
+        quoteAccent: {
+            type: "enum",
+            options: ["purple", "gold"],
+            default: "purple",
+        },
     },
     computedFields: {
         url: {

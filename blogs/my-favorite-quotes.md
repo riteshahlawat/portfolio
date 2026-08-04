@@ -3,6 +3,11 @@ title: My Favourite Quotes
 date: July 5, 2024
 image: /images/blog/my-favorite-quotes.jpeg
 description: Quotes that struck a chord with me
+shortTitle: my favourite quotes
+tags:
+    - philosophy
+dropCap: false
+quoteAccent: gold
 ---
 
 Back in 2022 I used to journal daily. I started each journal with a quote I found online. Here's a couple of the ones that aligned heavily with me.

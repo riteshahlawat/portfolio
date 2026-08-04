@@ -1,2 +1,228 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
+
+:root {
+    --bg: #0e0e10;
+    --panel: #141416;
+    --text: #b5b2aa;
+    --text-secondary: #7a7770;
+    --text-muted: #57544e;
+    --text-ghost: #2e2d31;
+    --heading: #f2efe8;
+    --title: #e8e5dd;
+    --accent: #8b7cf8;
+    --accent-light: #a89bff;
+    --code: #c4b5fd;
+    --gold: #c9a55e;
+    --gold-deep: #8a6d3b;
+    --gold-bright: #e8c87a;
+}
+
+html {
+    background: var(--bg);
+}
+
+/* Background lives on html only: body must stay transparent so
+   negative-z fixed layers (cat backdrop) paint above the canvas. */
+body {
+    margin: 0;
+    color: var(--text);
+}
+
+::selection {
+    background: rgba(139, 124, 248, 0.4);
+}
+
+@keyframes pawFade {
+    0% {
+        opacity: 0.8;
+        transform: scale(1) rotate(var(--paw-rotate, 0deg));
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.6) translateY(-6px) rotate(var(--paw-rotate, 0deg));
+    }
+}
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+@keyframes flicker {
+    0%,
+    100% {
+        transform: scale(1) rotate(-1deg);
+        opacity: 0.95;
+    }
+    30% {
+        transform: scale(1.1) rotate(2deg);
+        opacity: 1;
+    }
+    60% {
+        transform: scale(0.92) rotate(-2deg);
+        opacity: 0.85;
+    }
+}
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gold-shimmer-text {
+    background: linear-gradient(90deg, #8a6d3b, #f0d38a, #8a6d3b);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+}
+
+.eldorado-link {
+    background: linear-gradient(90deg, #8a6d3b, #f0d38a, #c9a55e, #8a6d3b);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 3s linear infinite;
+    filter: drop-shadow(0 0 7px rgba(232, 200, 122, 0.4));
+    transition: filter 0.25s ease;
+}
+
+.eldorado-link:hover {
+    filter: drop-shadow(0 0 10px rgba(240, 211, 138, 0.75));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eldorado-link {
+        animation: none;
+        color: #c9a55e;
+        background: none;
+    }
+}
+
+/* Attribution line: any paragraph after the first inside a quote. */
+.post-body blockquote > p + p {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: #57544e;
+}
+
+.post-dropcap > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 0.8;
+    color: #f2efe8;
+    padding: 8px 10px 0 0;
+}
+
+:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Kill every CSS animation (twinkle, shimmer, flicker, pawFade, ...). */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .gold-shimmer-text {
+        color: #c9a55e;
+        background: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-dropcap > p:first-of-type::first-letter {
+        font-size: 42px;
+        padding: 6px 8px 0 0;
+    }
+}
+
+.post-body {
+    overflow-wrap: anywhere;
+}
+
+/* the lamp: earned at 7/7 — a warm light in the corner of the room */
+.lamp-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -5;
+    background: radial-gradient(
+        900px 700px at 8% 0%,
+        rgba(201, 165, 94, 0.07),
+        transparent 70%
+    );
+}
+
+@media print {
+    html {
+        background: #fff;
+    }
+    body {
+        color: #111;
+        font-family: var(--font-book), Georgia, serif;
+        font-size: 11pt;
+    }
+    nav,
+    footer,
+    .lamp-glow,
+    .bookmark-ribbon,
+    [aria-hidden] {
+        display: none !important;
+    }
+    .post-body,
+    .post-body p,
+    .post-body em {
+        color: #111 !important;
+    }
+    .post-body h2,
+    .post-body h3,
+    .post-body h4 {
+        color: #444 !important;
+    }
+    .post-dropcap > p:first-of-type::first-letter {
+        color: #111;
+    }
+    blockquote,
+    figure,
+    img {
+        break-inside: avoid;
+    }
+    .post-body a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-family: var(--font-mono), monospace;
+        font-size: 8.5pt;
+        color: #777;
+    }
+}

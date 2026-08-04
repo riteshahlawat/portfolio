@@ -3,6 +3,9 @@ title: Working in the US - TN visa
 date: Aug 20, 2024
 image: /images/blog/air-canada-flying.jpg
 description: Stuff you should know when planning to move to the US on a TN work visa.
+shortTitle: working in the us
+tags:
+    - practical
 ---
 
 Great, you accepted an offer from a US company that is willing to sponsor you! The hard part is over. All those hours you've spent prepping for interviews was worth it — you finally did it. Now you can finally relax... but not so fast.
