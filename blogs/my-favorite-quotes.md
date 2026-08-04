@@ -2,7 +2,7 @@
 title: My Favourite Quotes
 date: July 5, 2024
 image: /images/blog/my-favorite-quotes.jpeg
-description: Quotes that struck a chord with me
+description: "Five quotes I journaled with back in 2022, from Hannibal to Dostoevsky, and what each one taught me about destiny, legacy, and running out of time."
 shortTitle: my favourite quotes
 tags:
     - philosophy

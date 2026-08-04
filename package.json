@@ -59,6 +59,7 @@
         "postcss": "^8.5.25",
         "prettier": "^3.9.6",
         "prettier-plugin-tailwindcss": "^0.8.1",
+        "schema-dts": "^2.0.0",
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.65.0"

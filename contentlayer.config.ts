@@ -7,6 +7,11 @@ export const BlogPost = defineDocumentType(() => ({
         title: { type: "string", required: true },
         shortTitle: { type: "string", required: false },
         date: { type: "date", required: true },
+        // Set this when an essay is meaningfully revised. Feeds the sitemap's
+        // lastModified and the BlogPosting dateModified; both fall back to
+        // `date`. Git mtimes are useless here: a repo-wide reformat rewrites
+        // every one of them at once.
+        updated: { type: "date", required: false },
         image: { type: "string", required: true },
         description: { type: "string", required: true },
         tags: { type: "list", of: { type: "string" }, default: [] },

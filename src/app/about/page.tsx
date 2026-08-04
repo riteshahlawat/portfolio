@@ -1,10 +1,27 @@
+import { SITE, SOCIALS, absolute, sharedOpenGraph } from "@/app/_seo/site";
+import type { Metadata } from "next";
 import { AboutHeading, CatsLine } from "./about-copy";
 import Polaroid from "./polaroid";
 
-export const metadata = {
-    title: "about — ritesh ahlawat",
-    description:
-        "Engineer at Mercury. I run Aranova. Trying to build one coherent life, and to get better at writing.",
+const DESCRIPTION =
+    "Engineer at Mercury, running Aranova at night. Toronto raised me, the Bay Area has me now. Trying to build one coherent life and get better at writing.";
+
+export const metadata: Metadata = {
+    title: "about",
+    description: DESCRIPTION,
+    alternates: { canonical: "/about" },
+    openGraph: {
+        ...sharedOpenGraph,
+        type: "profile",
+        url: absolute("/about"),
+        title: `about · ${SITE.authorLower}`,
+        description: DESCRIPTION,
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: `about · ${SITE.authorLower}`,
+        description: DESCRIPTION,
+    },
 };
 
 const JOBS = [
@@ -63,18 +80,6 @@ const JOBS = [
         bullets: [
             "Deep-learning speech recognition for single-switch users; built a school management system supporting video calls (WebRTC).",
         ],
-    },
-];
-
-const SOCIALS = [
-    { label: "github", href: "https://github.com/riteshahlawat" },
-    {
-        label: "linkedin",
-        href: "https://www.linkedin.com/in/ritesh-ahlawat/",
-    },
-    {
-        label: "instagram",
-        href: "https://www.instagram.com/riteshahlawat1",
     },
 ];
 

@@ -11,6 +11,10 @@ import {
 import { cn } from "@/lib/utils";
 import { allBlogPosts } from "contentlayer/generated";
 import { compareAsc } from "date-fns";
+import type { Metadata, Viewport } from "next";
+import JsonLd from "./_seo/json-ld";
+import { siteGraph } from "./_seo/schema";
+import { SITE, absolute, sharedOpenGraph } from "./_seo/site";
 import CatBackdrop from "./_stacks/cat-backdrop";
 import CardCatalog from "./_stacks/card-catalog";
 import Drawer from "./_stacks/drawer";
@@ -46,14 +50,46 @@ const fontMono = IBM_Plex_Mono({
     variable: "--font-mono",
 });
 
-export const viewport = {
+export const viewport: Viewport = {
     themeColor: "#0e0e10",
 };
 
-export const metadata = {
-    title: "ritesh ahlawat",
-    description: "Maybe one day I'll be good at writing.",
-    metadataBase: new URL("https://ahlawat.dev"),
+export const metadata: Metadata = {
+    metadataBase: new URL(SITE.url),
+    title: {
+        default: `${SITE.authorLower} · engineer, writing at night`,
+        // Pages set a bare title; the brand is appended here so it can't drift.
+        template: `%s · ${SITE.authorLower}`,
+    },
+    description: SITE.homeDescription,
+    authors: [{ name: SITE.author, url: SITE.url }],
+    creator: SITE.author,
+    alternates: { canonical: "/" },
+    openGraph: {
+        ...sharedOpenGraph,
+        type: "website",
+        url: SITE.url,
+        title: `${SITE.authorLower} · engineer, writing at night`,
+        description: SITE.homeDescription,
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: `${SITE.authorLower} · engineer, writing at night`,
+        description: SITE.homeDescription,
+        images: [absolute("/opengraph-image")],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            // The posts have real cover art; let Google show it full size.
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+        },
+    },
 };
 
 export default function RootLayout({
@@ -81,6 +117,7 @@ export default function RootLayout({
                     fontMono.variable,
                 )}
             >
+                <JsonLd data={siteGraph} />
                 <Analytics />
                 <StacksProvider>
                     <SmoothScroll />

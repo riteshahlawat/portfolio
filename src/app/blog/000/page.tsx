@@ -1,10 +1,16 @@
 import GrantEggOnVisit from "@/app/_stacks/grant-egg-on-visit";
 import Link from "next/link";
 import ZeroNote from "./zero-note";
+import { absolute, sharedOpenGraph } from "@/app/_seo/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "note to self",
     robots: { index: false, follow: false },
+    // Self-referencing: without it this inherits the root layout's canonical
+    // and declares itself to be the homepage.
+    alternates: { canonical: "/blog/000" },
+    openGraph: { ...sharedOpenGraph, url: absolute("/blog/000") },
 };
 
 export default function EntryZero() {

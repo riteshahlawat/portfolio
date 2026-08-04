@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import GrantEggOnVisit from "./_stacks/grant-egg-on-visit";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "there is no page for you to escape to.",
     robots: { index: false, follow: false },
+    // A 404 has no canonical version of itself. Null clears the one the root
+    // layout would otherwise hand down, which points at the homepage.
+    alternates: { canonical: null },
 };
 
 export default function NotFound() {

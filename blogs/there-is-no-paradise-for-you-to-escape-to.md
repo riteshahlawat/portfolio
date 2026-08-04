@@ -2,7 +2,7 @@
 title: There Is No Paradise for You to Escape To
 date: Aug 3, 2026
 image: /images/blog/there-is-no-paradise-for-you-to-escape-to.png
-description: Paradise is not arrival, escape, or a city waiting beyond the horizon.
+description: "Raleigh chased a city of gold that was never there. We do the same thing with the perfect job, city, and life. Paradise is not a place you arrive at."
 shortTitle: no paradise
 tags:
     - philosophy

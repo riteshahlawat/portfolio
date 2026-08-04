@@ -1,26 +1,88 @@
-import { ImageResponse } from "next/og";
-import { allBlogPosts } from "contentlayer/generated";
-import { compareAsc } from "date-fns";
 import { spineMetrics } from "@/app/_components/spine-data";
+import { OG, OG_SIZE, glowAt, loadOgFonts } from "@/app/_seo/og";
+import { allBlogPosts } from "contentlayer/generated";
+import { compareAsc, format, parseISO } from "date-fns";
+import { ImageResponse } from "next/og";
 
-export const size = { width: 1200, height: 630 };
+export const size = OG_SIZE;
 export const contentType = "image/png";
 
 export const generateStaticParams = () => {
     return allBlogPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 };
 
-// Satori needs raw font data; pull TTFs from Google Fonts at build time.
-const loadGoogleFont = async (family: string, text: string) => {
-    const cssUrl = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}&text=${encodeURIComponent(text)}`;
-    const css = await (await fetch(cssUrl)).text();
-    const match = /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/.exec(
-        css,
+const MAIN_SCALE = 1.9;
+const NEIGHBOUR_SCALE = 1.5;
+
+/** One book, standing. Same geometry the shelf on / uses, scaled up. */
+function Spine({
+    slug,
+    scale,
+    label,
+    dim,
+}: {
+    slug: string;
+    scale: number;
+    label?: string;
+    dim?: boolean;
+}) {
+    const { width, height, spine } = spineMetrics(slug);
+    const w = width * scale;
+    const h = height * scale;
+
+    return (
+        <div
+            style={{
+                width: w,
+                height: h,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                borderRadius: 5,
+                background: spine.solid,
+                // The same gradient the shelf on / paints, so a preview and
+                // the real book are the same object.
+                backgroundImage: spine.background,
+                opacity: dim ? 0.42 : 1,
+                boxShadow: dim
+                    ? "inset -4px 0 10px rgba(0,0,0,.5)"
+                    : "inset 4px 0 8px rgba(255,255,255,.10), inset -6px 0 14px rgba(0,0,0,.5), 0 12px 34px rgba(0,0,0,.6)",
+            }}
+        >
+            <div
+                style={{
+                    width: w - 18,
+                    height: 5,
+                    marginTop: 16,
+                    borderRadius: 3,
+                    background: spine.band,
+                }}
+            />
+            <div style={{ display: "flex", flex: 1 }} />
+            {label ? (
+                <div
+                    style={{
+                        fontFamily: "IBM Plex Mono",
+                        fontSize: 17,
+                        color: spine.meta,
+                        marginBottom: 12,
+                    }}
+                >
+                    {label}
+                </div>
+            ) : null}
+            <div
+                style={{
+                    width: w - 18,
+                    height: 5,
+                    marginBottom: 16,
+                    borderRadius: 3,
+                    background: spine.band,
+                }}
+            />
+        </div>
     );
-    if (!match?.[1]) throw new Error(`font fetch failed: ${family}`);
-    const response = await fetch(match[1]);
-    return response.arrayBuffer();
-};
+}
 
 export default async function OpengraphImage({
     params,
@@ -35,19 +97,22 @@ export default async function OpengraphImage({
         (post) => post._raw.flattenedPath === slug,
     );
     const post = chronological[index];
+
     const idx = String(index + 1).padStart(3, "0");
-    const title = (post?.title ?? "the stacks").toLowerCase();
-    const { width, height, spine } = spineMetrics(slug);
+    const title = post?.title ?? "the stacks";
+    const date = post
+        ? format(parseISO(post.date), "MMM d, yyyy").toLowerCase()
+        : "";
 
-    const text = `${title}nº ${idx} · ritesh ahlawat · ahlawat.dev · the stacks0123456789`;
-    const [serif, mono] = await Promise.all([
-        loadGoogleFont("Newsreader:ital@1", text),
-        loadGoogleFont("IBM Plex Mono", text),
-    ]);
+    // The books this one actually sits between on the shelf. Empty at the
+    // ends, so a one-post library still renders cleanly.
+    const neighbours = [chronological[index - 1], chronological[index + 1]].map(
+        (neighbour) => neighbour?._raw.flattenedPath,
+    );
 
-    // Same deterministic spine as the shelf, scaled up 2.2x.
-    const spineWidth = width * 2.2;
-    const spineHeight = height * 2.2;
+    // Long titles step down a size rather than overflowing the column.
+    const titleSize = title.length > 46 ? 50 : title.length > 30 ? 58 : 66;
+    const fonts = await loadOgFonts();
 
     return new ImageResponse(
         (
@@ -57,85 +122,72 @@ export default async function OpengraphImage({
                     height: "100%",
                     display: "flex",
                     alignItems: "center",
-                    background: "#0e0e10",
-                    padding: "0 90px",
+                    padding: "0 80px",
+                    background: OG.bg,
+                    backgroundImage: `${OG.lamp}, ${glowAt("20%", "64%", 0.13)}`,
                 }}
             >
+                {/* the shelf */}
                 <div
                     style={{
+                        width: 320,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        justifyContent: "flex-end",
+                        justifyContent: "center",
                     }}
                 >
                     <div
                         style={{
-                            width: spineWidth,
-                            height: spineHeight,
-                            background: spine.solid,
-                            borderRadius: 6,
+                            width: 300,
                             display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            boxShadow:
-                                "inset 4px 0 8px rgba(255,255,255,.07), inset -6px 0 12px rgba(0,0,0,.45)",
+                            alignItems: "flex-end",
+                            justifyContent: "center",
+                            gap: 10,
                         }}
                     >
-                        <div
-                            style={{
-                                marginTop: 20,
-                                width: spineWidth - 26,
-                                height: 6,
-                                borderRadius: 3,
-                                background: spine.band,
-                            }}
-                        />
-                        <div style={{ flex: 1 }} />
-                        <div
-                            style={{
-                                fontFamily: "IBM Plex Mono",
-                                fontSize: 18,
-                                color: spine.meta,
-                                marginBottom: 14,
-                            }}
-                        >
-                            {idx}
-                        </div>
-                        <div
-                            style={{
-                                marginBottom: 18,
-                                width: spineWidth - 26,
-                                height: 6,
-                                borderRadius: 3,
-                                background: spine.band,
-                            }}
-                        />
+                        {neighbours[0] ? (
+                            <Spine
+                                slug={neighbours[0]}
+                                scale={NEIGHBOUR_SCALE}
+                                dim
+                            />
+                        ) : null}
+                        <Spine slug={slug} scale={MAIN_SCALE} label={idx} />
+                        {neighbours[1] ? (
+                            <Spine
+                                slug={neighbours[1]}
+                                scale={NEIGHBOUR_SCALE}
+                                dim
+                            />
+                        ) : null}
                     </div>
                     <div
                         style={{
-                            width: spineWidth + 70,
-                            height: 14,
-                            marginTop: 2,
+                            width: 300,
+                            height: 13,
+                            marginTop: 3,
                             borderRadius: 3,
-                            background: "#26262b",
+                            background: OG.shelf,
                         }}
                     />
                 </div>
+
+                {/* the catalog card */}
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "column",
-                        marginLeft: 80,
                         flex: 1,
+                        marginLeft: 64,
                     }}
                 >
                     <div
                         style={{
                             fontFamily: "IBM Plex Mono",
-                            fontSize: 22,
-                            letterSpacing: "0.2em",
-                            color: "#57544e",
+                            fontSize: 20,
+                            letterSpacing: "0.22em",
+                            color: OG.faint,
                         }}
                     >
                         {`Nº ${idx} · THE STACKS`}
@@ -144,20 +196,39 @@ export default async function OpengraphImage({
                         style={{
                             fontFamily: "Newsreader",
                             fontStyle: "italic",
-                            fontSize: 64,
-                            lineHeight: 1.2,
-                            color: "#f2efe8",
-                            marginTop: 24,
+                            fontSize: titleSize,
+                            lineHeight: 1.18,
+                            color: OG.heading,
+                            marginTop: 20,
                         }}
                     >
                         {title}
                     </div>
                     <div
                         style={{
+                            width: 56,
+                            height: 3,
+                            marginTop: 30,
+                            borderRadius: 2,
+                            background: OG.purple,
+                        }}
+                    />
+                    <div
+                        style={{
                             fontFamily: "IBM Plex Mono",
-                            fontSize: 20,
-                            color: "#8b7cf8",
-                            marginTop: 32,
+                            fontSize: 19,
+                            color: OG.muted,
+                            marginTop: 26,
+                        }}
+                    >
+                        {`${date} · ${post?.readTimeMinutes ?? 0} min read`}
+                    </div>
+                    <div
+                        style={{
+                            fontFamily: "IBM Plex Mono",
+                            fontSize: 19,
+                            color: OG.purple,
+                            marginTop: 10,
                         }}
                     >
                         ritesh ahlawat · ahlawat.dev
@@ -165,16 +236,6 @@ export default async function OpengraphImage({
                 </div>
             </div>
         ),
-        {
-            ...size,
-            fonts: [
-                {
-                    name: "Newsreader",
-                    data: serif,
-                    style: "italic" as const,
-                },
-                { name: "IBM Plex Mono", data: mono, style: "normal" as const },
-            ],
-        },
+        { ...size, fonts },
     );
 }

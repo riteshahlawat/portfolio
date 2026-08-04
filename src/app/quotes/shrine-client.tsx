@@ -191,9 +191,9 @@ export default function ShrineClient() {
                     />
                     <span className="absolute top-[36px] left-1/2 h-[5px] w-[30px] -translate-x-1/2 rounded-full bg-[rgba(255,255,255,.12)]" />
                 </button>
-                <p className="mt-[14px] mb-0 font-mono text-[11px] tracking-[.3em] text-[#c9a55e]">
+                <h1 className="mt-[14px] mb-0 font-mono text-[11px] font-normal tracking-[.3em] text-[#c9a55e]">
                     THE SHRINE · 2022
-                </p>
+                </h1>
                 <p className="mx-auto mt-[14px] mb-0 max-w-[44ch] text-[13px] leading-[1.7] text-[#7a7770]">
                     my favorite quotes
                 </p>

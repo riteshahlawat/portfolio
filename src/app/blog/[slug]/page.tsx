@@ -2,9 +2,13 @@ import BookmarkRibbon from "@/app/_components/bookmark-ribbon";
 import CopyCitation from "@/app/_components/copy-citation";
 import ExpandableImage from "@/app/_components/expandable-image";
 import PostMarkdown from "@/app/_components/post-markdown";
+import JsonLd from "@/app/_seo/json-ld";
+import { buildBreadcrumbSchema, buildPostSchema } from "@/app/_seo/schema";
+import { SITE, absolute, sharedOpenGraph } from "@/app/_seo/site";
 import ViewCount from "@/app/_stacks/view-count";
 import { allBlogPosts } from "contentlayer/generated";
 import { compareAsc, format, parseISO } from "date-fns";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -32,14 +36,46 @@ export const generateStaticParams = () => {
     return allBlogPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 };
 
-export const generateMetadata = async ({ params }: BlogPostPageProps) => {
+export const generateMetadata = async ({
+    params,
+}: BlogPostPageProps): Promise<Metadata> => {
     const { slug } = await params;
     const post = allBlogPosts.find((post) => post._raw.flattenedPath === slug);
-    if (!post) return { title: "Not found" };
+    if (!post) return { title: "not found" };
+
+    // Every post renders its own spine as a preview image. Naming it here is
+    // what keeps it: declaring a page-level openGraph replaces the inherited
+    // object wholesale, which would otherwise drop back to the site image.
+    const preview = {
+        url: absolute(`/blog/${slug}/opengraph-image`),
+        width: 1200,
+        height: 630,
+        alt: post.title,
+        type: "image/png",
+    };
 
     return {
         title: post.title,
         description: post.description,
+        alternates: { canonical: `/blog/${slug}` },
+        openGraph: {
+            ...sharedOpenGraph,
+            type: "article",
+            url: absolute(`/blog/${slug}`),
+            title: post.title,
+            description: post.description,
+            publishedTime: new Date(post.date).toISOString(),
+            modifiedTime: new Date(post.updated ?? post.date).toISOString(),
+            authors: [SITE.author],
+            tags: [...post.tags],
+            images: [preview],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.description,
+            images: [preview.url],
+        },
     };
 };
 
@@ -66,6 +102,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <main className="relative mx-auto w-full max-w-[720px] flex-1 px-5 sm:px-8">
+            <JsonLd
+                data={buildPostSchema({
+                    slug,
+                    title: post.title,
+                    description: post.description,
+                    image: post.image,
+                    datePublished: post.date,
+                    dateModified: post.updated ?? post.date,
+                    tags: post.tags,
+                    readTimeMinutes: post.readTimeMinutes,
+                })}
+            />
+            <JsonLd data={buildBreadcrumbSchema(slug, idx)} />
             <BookmarkRibbon />
             <CopyCitation idx={idx} title={post.title} slug={slug} />
             <div className="pt-14">

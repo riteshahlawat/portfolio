@@ -2,7 +2,7 @@
 title: Working in the US - TN visa
 date: Aug 20, 2024
 image: /images/blog/air-canada-flying.jpg
-description: Stuff you should know when planning to move to the US on a TN work visa.
+description: "Everything I wish I had known before moving to the US on a TN visa: qualifying, the border interview, and the boring parts like banking, housing, and an SSN."
 shortTitle: working in the us
 tags:
     - practical
