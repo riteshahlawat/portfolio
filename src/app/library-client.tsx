@@ -138,7 +138,7 @@ export default function LibraryClient({ posts }: { posts: LibraryPost[] }) {
                                         group.year,
                                     ])
                                 }
-                                className="flex w-full cursor-pointer items-baseline gap-3 border-b border-[rgba(255,255,255,.06)] py-4 text-left hover:bg-[rgba(139,124,248,.05)]"
+                                className="-mx-4 flex w-[calc(100%+32px)] cursor-pointer items-baseline gap-3 border-b border-[rgba(255,255,255,.06)] px-4 py-4 text-left hover:bg-[rgba(139,124,248,.05)]"
                             >
                                 <span className="font-mono text-[11px] font-medium tracking-[.14em] text-[#57544e]">
                                     {group.year}
@@ -180,7 +180,11 @@ export default function LibraryClient({ posts }: { posts: LibraryPost[] }) {
                                     >
                                         <Link
                                             href={`/blog/${post.slug}`}
-                                            className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[rgba(255,255,255,.06)] py-4 hover:bg-[rgba(139,124,248,.05)]"
+                                            // Negative margin plus padding: the
+                                            // hover band gets breathing room on
+                                            // both sides without the text
+                                            // drifting off the year label.
+                                            className="-mx-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[rgba(255,255,255,.06)] px-4 py-4 hover:bg-[rgba(139,124,248,.05)]"
                                         >
                                             <span className="w-9 flex-none font-mono text-[12px] text-[#57544e]">
                                                 {post.idx}
